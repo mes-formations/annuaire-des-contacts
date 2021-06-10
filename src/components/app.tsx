@@ -33,7 +33,7 @@ const App: React.FC = () => {
       contactsState[1](contacts);
     })();
   }, []);
-  return <ContactsCollection />;
+  return <ContactsCollection contacts={contactsState[0]} />;
 };
 
 export default App;

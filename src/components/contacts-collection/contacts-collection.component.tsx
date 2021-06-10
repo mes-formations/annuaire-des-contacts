@@ -14,8 +14,7 @@ const ContactsCollection: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {/* Expliquer code ES6 */}
-        {/* {contactsState[0].map((contact, index) => (
+        {contactsState[0].map((contact, index) => (
           <tr key={contact.id}>
             <td>{contact.last_name}</td>
             <td>{contact.first_name}</td>
@@ -26,7 +25,7 @@ const ContactsCollection: React.FC = () => {
               <button onClick={() => deleteContact(index)}>Supprimer</button>
             </td>
           </tr>
-        ))} */}
+        ))}
       </tbody>
     </table>
   );
