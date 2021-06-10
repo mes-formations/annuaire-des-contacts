@@ -20,7 +20,7 @@ const ContactsCollection: React.FC<ContactsCollectionProps> = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.contacts.map((contact, index) => (
+        {props.contacts.map((contact) => (
           <tr key={contact.id}>
             <td>{contact.last_name}</td>
             <td>{contact.first_name}</td>
