@@ -1,5 +1,5 @@
 import React from "react";
-import { IContact } from "../../interfaces/i-contact";
+import { IContact } from "../../../interfaces/i-contact";
 import ContactItem from "../contact-item/contact-item.component"
 
 interface ContactsCollectionProps {
