@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ContactsCollection from "./contacts-collection/contacts-collection.component";
 import { IContact } from "../interfaces/i-contact";
 
 const App: React.FC = () => {
-  const [contacts, setContacts] = React.useState<IContact[]>([]);
+  const [contacts, setContacts] = useState<IContact[]>([]);
   async function fetchContacts() {
     const { data } = await axios
       .get<IContact[]>("http://localhost:3333/contacts")
@@ -16,7 +16,7 @@ const App: React.FC = () => {
     setContacts(newState);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     (async () => {
       const contacts = await fetchContacts().then((data) => data);
       setContacts(contacts);
