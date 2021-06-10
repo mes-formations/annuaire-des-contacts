@@ -5,12 +5,11 @@ import { IContact } from "../interfaces/i-contact";
 
 const App: React.FC = () => {
   const [contacts, setContacts] = React.useState<IContact[]>([]);
-  // Mise en place du typage static
   async function fetchContacts() {
-    const contacts = await axios
+    const { data } = await axios
       .get<IContact[]>("http://localhost:3333/contacts")
-      .then((res) => res.data);
-    return contacts;
+      .then((res) => res);
+    return data;
   }
   const deleteContact = (id: string) => {
     const newState = contacts.filter((contact) => contact.id !== id);
