@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const ContactsCollection: React.FC = () => {
   return (
     <table>
