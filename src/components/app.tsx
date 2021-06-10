@@ -1,3 +1,4 @@
+//Inférence
 const contacts = [
   {
     _id: "607cf129311fcb0015dd6e89",
@@ -47,8 +48,7 @@ const contacts = [
 ];
 
 const App: React.FC = () => {
-  // Mise en place du type static
-
+  // Mise en place du typage static
   const deleteContact = (index: number) => {
     contacts.splice(index, 1);
     console.log("Taille : ", contacts.length);
