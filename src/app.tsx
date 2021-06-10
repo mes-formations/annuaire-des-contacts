@@ -11,11 +11,11 @@ const App: React.FC = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/home">
+        <Route exact path="/home">
           <Redirect to="/" />
         </Route>
-        <Route path="/" component={Homepage} />
-        <Route path="/contacts" component={ContactsList} />
+        <Route exact path="/" component={Homepage} />
+        <Route exact path="/contacts" component={ContactsList} />
       </Switch>
     </Router>
   );
