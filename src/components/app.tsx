@@ -12,9 +12,9 @@ const App: React.FC = () => {
       .then((res) => res.data);
     return contacts;
   }
-  const deleteContact = (index: string) => {
-    const newState = [...contactsState[0]];
-    newState.splice(index, 1);
+  const deleteContact = (id: string) => {
+    const newState = contactsState[0].filter((contact) => contact.id !== id);
+
     contactsState[1](newState);
   };
 
