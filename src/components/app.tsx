@@ -1,3 +1,4 @@
+import React from "react";
 //Inférence
 const contacts = [
   {
@@ -48,10 +49,13 @@ const contacts = [
 ];
 
 const App: React.FC = () => {
+  const contactsState = React.useState(contacts);
+
   // Mise en place du typage static
   const deleteContact = (index: number) => {
-    contacts.splice(index, 1);
-    console.log("Taille : ", contacts.length);
+    const newState = [...contactsState[0]];
+    newState.splice(index, 1);
+    contactsState[1](newState);
   };
   return (
     <table>
@@ -67,7 +71,7 @@ const App: React.FC = () => {
       </thead>
       <tbody>
         {/* Expliquer code ES6 */}
-        {contacts.map((contact, index) => (
+        {contactsState[0].map((contact, index) => (
           <tr key={contact._id}>
             <td>{contact.last_name}</td>
             <td>{contact.first_name}</td>
