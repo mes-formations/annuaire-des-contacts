@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ContactsCollection from "./contact/contacts-collection/contacts-collection.component"
-import { IContact } from "../interfaces/i-contact";
+import { IContact } from "../../../interfaces/i-contact";
+import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection.component";
 
-const App: React.FC = () => {
+const ContactsList: React.FC = () => {
   const [contacts, setContacts] = useState<IContact[]>([]);
   async function fetchContacts() {
     const { data } = await axios
@@ -27,4 +27,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default ContactsList;
