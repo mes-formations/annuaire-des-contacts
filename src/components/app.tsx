@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ContactsCollection from "./contacts-collection/contacts-collection.component";
+import ContactsCollection from "./contacts-collection/contacts-collection.component"
 import { IContact } from "../interfaces/i-contact";
 
 const App: React.FC = () => {

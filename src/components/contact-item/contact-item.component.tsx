@@ -6,18 +6,19 @@ interface ContactItemProps {
   deleteContact: (id: string) => void;
 }
 
-const ContactItem: React.FC<ContactItemProps> = (props) => {
+const ContactItem: React.FC<ContactItemProps> = ({
+  contact: { id, last_name, first_name, email, phone_number, position },
+  deleteContact,
+}) => {
   return (
-    <tr key={props.contact.id}>
-      <td>{props.contact.last_name}</td>
-      <td>{props.contact.first_name}</td>
-      <td>{props.contact.email}</td>
-      <td>{props.contact.position}</td>
-      <td>{props.contact.phone_number}</td>
+    <tr key={id}>
+      <td>{last_name}</td>
+      <td>{first_name}</td>
+      <td>{email}</td>
+      <td>{position}</td>
+      <td>{phone_number}</td>
       <td>
-        <button onClick={() => props.deleteContact(props.contact.id)}>
-          Supprimer
-        </button>
+        <button onClick={() => deleteContact(id)}>Supprimer</button>
       </td>
     </tr>
   );
