@@ -46,7 +46,13 @@ const contacts = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
+  // Mise en place du type static
+
+  const deleteContact = (index: number) => {
+    contacts.splice(index, 1);
+    console.log("Taille : ", contacts.length);
+  };
   return (
     <table>
       <thead>
@@ -56,17 +62,21 @@ const App = () => {
           <th>Email</th>
           <th>Poste</th>
           <th>Numéro de téléphone</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         {/* Expliquer code ES6 */}
-        {contacts.map((contact) => (
-          <tr>
+        {contacts.map((contact, index) => (
+          <tr key={contact._id}>
             <td>{contact.last_name}</td>
             <td>{contact.first_name}</td>
             <td>{contact.email}</td>
             <td>{contact.position}</td>
             <td>{contact.phone_number}</td>
+            <td>
+              <button onClick={() => deleteContact(index)}>Supprimer</button>
+            </td>
           </tr>
         ))}
       </tbody>
