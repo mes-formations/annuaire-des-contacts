@@ -4,7 +4,7 @@ import ContactsCollection from "./contacts-collection/contacts-collection.compon
 import { IContact } from "../interfaces/i-contact";
 
 const App: React.FC = () => {
-  const contactsState = React.useState<IContact[]>([]);
+  const [contacts, setContacts] = React.useState<IContact[]>([]);
   // Mise en place du typage static
   async function fetchContacts() {
     const contacts = await axios
@@ -13,22 +13,18 @@ const App: React.FC = () => {
     return contacts;
   }
   const deleteContact = (id: string) => {
-    const newState = contactsState[0].filter((contact) => contact.id !== id);
-
-    contactsState[1](newState);
+    const newState = contacts.filter((contact) => contact.id !== id);
+    setContacts(newState);
   };
 
   React.useEffect(() => {
     (async () => {
       const contacts = await fetchContacts().then((data) => data);
-      contactsState[1](contacts);
+      setContacts(contacts);
     })();
   }, []);
   return (
-    <ContactsCollection
-      deleteContact={deleteContact}
-      contacts={contactsState[0]}
-    />
+    <ContactsCollection deleteContact={deleteContact} contacts={contacts} />
   );
 };
 
