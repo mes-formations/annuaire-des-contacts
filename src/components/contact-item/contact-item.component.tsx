@@ -1,15 +1,21 @@
 import React from "react";
+import { IContact } from "../../interfaces/i-contact";
 
-const ContactItem: React.FC = () => {
+interface ContactItemProps {
+  contact: IContact;
+  deleteContact: (id: string) => void;
+}
+
+const ContactItem: React.FC<ContactItemProps> = (props) => {
   return (
-    <tr key={contact.id}>
-      <td>{contact.last_name}</td>
-      <td>{contact.first_name}</td>
-      <td>{contact.email}</td>
-      <td>{contact.position}</td>
-      <td>{contact.phone_number}</td>
+    <tr key={props.contact.id}>
+      <td>{props.contact.last_name}</td>
+      <td>{props.contact.first_name}</td>
+      <td>{props.contact.email}</td>
+      <td>{props.contact.position}</td>
+      <td>{props.contact.phone_number}</td>
       <td>
-        <button onClick={() => props.deleteContact(contact.id)}>
+        <button onClick={() => props.deleteContact(props.contact.id)}>
           Supprimer
         </button>
       </td>
