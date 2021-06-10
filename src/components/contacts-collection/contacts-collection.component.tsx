@@ -1,5 +1,6 @@
 import React from "react";
 import { IContact } from "../../interfaces/i-contact";
+import ContactItem from "../contact-item/contact-item.component";
 
 interface ContactsCollectionProps {
   contacts: IContact[];
@@ -21,18 +22,11 @@ const ContactsCollection: React.FC<ContactsCollectionProps> = (props) => {
       </thead>
       <tbody>
         {props.contacts.map((contact) => (
-          <tr key={contact.id}>
-            <td>{contact.last_name}</td>
-            <td>{contact.first_name}</td>
-            <td>{contact.email}</td>
-            <td>{contact.position}</td>
-            <td>{contact.phone_number}</td>
-            <td>
-              <button onClick={() => props.deleteContact(contact.id)}>
-                Supprimer
-              </button>
-            </td>
-          </tr>
+          <ContactItem
+            key={contact.id}
+            contact={contact}
+            deleteContact={props.deleteContact}
+          />
         ))}
       </tbody>
     </table>
