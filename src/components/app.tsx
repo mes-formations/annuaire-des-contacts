@@ -1,13 +1,22 @@
 import React from "react";
 import axios from "axios";
-//Inférence
+
+interface IContact {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
+  position: string;
+  work_address: string;
+}
 
 const App: React.FC = () => {
-  const contactsState = React.useState([]);
+  const contactsState = React.useState<IContact[]>([]);
   // Mise en place du typage static
   async function fetchContacts() {
     const contacts = await axios
-      .get("http://localhost:3333/contacts")
+      .get<IContact[]>("http://localhost:3333/contacts")
       .then((res) => res.data);
     return contacts;
   }
