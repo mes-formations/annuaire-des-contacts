@@ -1,7 +1,12 @@
 import React from "react";
+import { IContact } from "../../interfaces/i-contact";
 
+interface ContactsCollectionProps {
+  contacts: IContact[];
+  deleteContact: (id: string) => void;
+}
 
-const ContactsCollection: React.FC = () => {
+const ContactsCollection: React.FC<ContactsCollectionProps> = (props) => {
   return (
     <table>
       <thead>
@@ -15,7 +20,7 @@ const ContactsCollection: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {contactsState[0].map((contact, index) => (
+        {props.contacts.map((contact, index) => (
           <tr key={contact.id}>
             <td>{contact.last_name}</td>
             <td>{contact.first_name}</td>
@@ -23,7 +28,9 @@ const ContactsCollection: React.FC = () => {
             <td>{contact.position}</td>
             <td>{contact.phone_number}</td>
             <td>
-              <button onClick={() => deleteContact(index)}>Supprimer</button>
+              <button onClick={() => props.deleteContact(contact.id)}>
+                Supprimer
+              </button>
             </td>
           </tr>
         ))}

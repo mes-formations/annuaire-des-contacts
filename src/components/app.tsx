@@ -12,7 +12,7 @@ const App: React.FC = () => {
       .then((res) => res.data);
     return contacts;
   }
-  const deleteContact = (index: number) => {
+  const deleteContact = (index: string) => {
     const newState = [...contactsState[0]];
     newState.splice(index, 1);
     contactsState[1](newState);
@@ -24,7 +24,12 @@ const App: React.FC = () => {
       contactsState[1](contacts);
     })();
   }, []);
-  return <ContactsCollection contacts={contactsState[0]} />;
+  return (
+    <ContactsCollection
+      deleteContact={deleteContact}
+      contacts={contactsState[0]}
+    />
+  );
 };
 
 export default App;
