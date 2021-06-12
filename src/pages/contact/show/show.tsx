@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { RouteComponentProps } from "react-router-dom";
 import { IContact } from "../../../interfaces/i-contact";
+import contactApi from "../../../configs/contact.api";
 
 type ContactIdParam = { id: string };
 
@@ -10,8 +10,8 @@ type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   const [contact, setContact] = useState<IContact | null>(null);
   async function fetchContactById(id: string) {
-    const { data } = await axios
-      .get<IContact>(`http://localhost:3333/contacts/${id}`)
+    const { data } = await contactApi
+      .get<IContact>(`/${id}`)
       .then((res) => res);
     return data;
   }

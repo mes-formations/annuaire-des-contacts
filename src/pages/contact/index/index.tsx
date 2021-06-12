@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { IContact } from "../../../interfaces/i-contact";
 import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection.component";
+import contactApi from "../../../configs/contact.api";
 
 const ContactsList: React.FC = () => {
   const [contacts, setContacts] = useState<IContact[]>([]);
   async function fetchContacts() {
-    const { data } = await axios
-      .get<IContact[]>("http://localhost:3333/contacts")
-      .then((res) => res);
+    const { data } = await contactApi.get<IContact[]>("/").then((res) => res);
     return data;
   }
   const deleteContact = (id: string) => {
