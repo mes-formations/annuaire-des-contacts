@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { IContact } from "../../../interfaces/i-contact";
+import { HTTP_VERBS } from "../../../enums/methods";
+import useHttpRequest from "../../../hooks/use-http-request";
 
 interface ContactItemProps {
   contact: IContact;
@@ -11,6 +13,14 @@ const ContactItem: React.FC<ContactItemProps> = ({
   contact: { id, last_name, first_name, email, phone_number, position },
   deleteContact,
 }) => {
+  // const history = useHistory();
+
+  // const handleDelete = () => {
+  //   deleteContact();
+  //   history.push("/contacts"); //Ne marche pas comme souhaité
+  //   //Je vais essayer d'appeler cette methode pas
+  // };
+
   return (
     <tr key={id}>
       <td>{last_name}</td>

@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { IContact } from "../../../interfaces/i-contact";
 import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection.component";
-import contactApi from "../../../configs/contact.api";
+import useHttpRequest from "../../../hooks/use-http-request";
+import { HTTP_VERBS } from "../../../enums/methods";
 
 const ContactsList: React.FC = () => {
-  const [contacts, setContacts] = useState<IContact[]>([]);
-  async function fetchContacts() {
-    const { data } = await contactApi.get<IContact[]>("/").then((res) => res);
-    return data;
-  }
-  const deleteContact = (id: string) => {
-    const newState = contacts.filter((contact) => contact.id !== id);
-    setContacts(newState);
-  };
+  const { makeRequest: getContacts, data: contacts } = useHttpRequest({
+    url: "/",
+    method: HTTP_VERBS.get,
+  });
+
+  const { makeRequest: deleteContact } = useHttpRequest({
+    url: `/`,
+    method: HTTP_VERBS.delete,
+  });
 
   useEffect(() => {
     (async () => {
-      const contacts = await fetchContacts().then((data) => data);
-      setContacts(contacts);
+      getContacts();
     })();
   }, []);
+
   return (
-    <ContactsCollection deleteContact={deleteContact} contacts={contacts} />
+    <ContactsCollection
+      deleteContact={deleteContact}
+      contacts={contacts ? contacts : []}
+    />
   );
 };
 
