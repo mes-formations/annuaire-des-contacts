@@ -7,10 +7,12 @@ import {
 import Homepage from "./pages/home/home";
 import ContactsList from "./pages/contact/index/";
 import ContactShow from "./pages/contact/show/show";
+import Header from "./components/layout/header/header";
 
 const App: React.FC = () => {
   return (
     <Router>
+      <Header />
       <Switch>
         <Route exact path="/home">
           <Redirect to="/" />
