@@ -1,7 +1,9 @@
+import "./header.styles.scss";
+
 const Header: React.FC = () => {
   return (
     <header>
-      <nav>
+      <nav className="nav">
         <ul className="nav-item nav-brand">
           <li>
             <a className="nav-link" href="#">
@@ -12,12 +14,12 @@ const Header: React.FC = () => {
         <ul className="nav-item nav-links">
           <li>
             <a className="nav-link" href="#">
-              Paramètres
+              Contacts
             </a>
           </li>
           <li>
             <a className="nav-link" href="#">
-              À propos
+              Créer contact
             </a>
           </li>
         </ul>

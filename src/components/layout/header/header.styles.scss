@@ -1,0 +1,54 @@
+@mixin afterEffect($width: 100%) {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  width: $width;
+  border-bottom: 0.5rem solid;
+  transition: 0.4s linear;
+}
+
+.nav {
+  background-color: var(--primary-red);
+  display: flex;
+  font-size: 2rem;
+  padding: 2.5rem;
+  font-weight: 700;
+  ul {
+    list-style: none;
+  }
+}
+
+.nav-item {
+  display: flex;
+  flex: 4;
+  justify-content: center;
+}
+
+.nav-brand {
+  flex: 2;
+  justify-content: flex-start;
+}
+
+.nav-links {
+  justify-content: space-evenly;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  text-decoration: none;
+  color: var(--primary-yellow);
+  position: relative;
+}
+
+.nav-brand .nav-link::after {
+  @include afterEffect;
+}
+
+.nav-links .nav-link::after {
+  @include afterEffect(0);
+}
+
+.nav-links .nav-link:hover::after {
+  width: 100%;
+}
