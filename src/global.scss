@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-red: #ff4154;
+  --primary-yellow: #fed94c;
+  --primary-blue: #001f33;
+  --table-border: #eeeeee;
+}
