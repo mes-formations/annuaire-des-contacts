@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IContact } from "../../../interfaces/i-contact";
 import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection";
 import contactApi from "../../../configs/contact.api";
+import "./style.scss";
 
 const ContactsList: React.FC = () => {
   const [contacts, setContacts] = useState<IContact[]>([]);
