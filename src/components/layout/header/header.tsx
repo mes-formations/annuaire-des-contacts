@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./header.styles.scss";
 
 const Header: React.FC = () => {
@@ -6,21 +7,21 @@ const Header: React.FC = () => {
       <nav className="nav">
         <ul className="nav-item nav-brand">
           <li>
-            <a className="nav-link" href="#">
+            <Link to="/" className="nav-link" href="#">
               Accueil
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="nav-item nav-links">
           <li>
-            <a className="nav-link" href="#">
+            <Link to="/contacts" className="nav-link" href="#">
               Contacts
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="nav-link" href="#">
+            <Link to="#" className="nav-link" href="#">
               Créer contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
