@@ -21,7 +21,10 @@ const ContactsList: React.FC = () => {
     })();
   }, []);
   return (
-    <ContactsCollection deleteContact={deleteContact} contacts={contacts} />
+    <>
+      <h1>Liste des contacts</h1>
+      <ContactsCollection deleteContact={deleteContact} contacts={contacts} />
+    </>
   );
 };
 
