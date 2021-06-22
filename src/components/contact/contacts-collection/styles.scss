@@ -1,0 +1,17 @@
+table {
+  border: 0.1rem solid var(--table-border);
+}
+
+table {
+  font-size: 2rem;
+  // border-collapse:collapse;
+}
+
+thead {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--table-border);
+}

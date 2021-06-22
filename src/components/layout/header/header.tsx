@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./header.styles.scss";
+import "./styles.scss";
 
 const Header: React.FC = () => {
   return (

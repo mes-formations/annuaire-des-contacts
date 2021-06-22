@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IContact } from "../../../interfaces/i-contact";
-import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection.component";
+import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection";
 import contactApi from "../../../configs/contact.api";
 
 const ContactsList: React.FC = () => {

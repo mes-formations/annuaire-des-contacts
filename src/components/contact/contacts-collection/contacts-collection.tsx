@@ -1,6 +1,7 @@
 import React from "react";
 import { IContact } from "../../../interfaces/i-contact";
-import ContactItem from "../contact-item/contact-item.component"
+import ContactItem from "../contact-item/contact-item.component";
+import "./styles.scss";
 
 interface ContactsCollectionProps {
   contacts: IContact[];
