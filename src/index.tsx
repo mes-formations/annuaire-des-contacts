@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import "./global.scss";
+import "./sass/main.scss";
 import App from "./app";
 
 const root = document.querySelector("#root");

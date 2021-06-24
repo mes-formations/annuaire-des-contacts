@@ -1,0 +1,35 @@
+$primary-red: #ff4154;
+$primary-yellow: #fed94c;
+$primary-blue: #001f33;
+$table-border: #eeeeee;
+$color-white: #fff;
+:root {
+  --primary-red: #{$primary-red};
+  --primary-yellow: #{$primary-yellow};
+  --primary-blue: #{$primary-blue};
+  --table-border: #{$table-border};
+  --color-white: #{$color-white};
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+main {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,46 @@
+//BUTTONS
+.btn {
+  padding: 1rem 3rem;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  width: 20rem;
+  display: inline-block;
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s linear;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  &--primary {
+    background-color: lighten($primary-blue, 30%);
+  }
+
+  &--danger {
+    background-color: lighten($primary-red, 5%);
+  }
+
+  &--secondary {
+    background-color: darken($primary-yellow, 5%);
+    color: var(--primary-blue);
+  }
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    -webkit-transform: translateY(-0.2rem);
+    -moz-transform: translateY(-0.2rem);
+    -ms-transform: translateY(-0.2rem);
+    -o-transform: translateY(-0.2rem);
+  }
+
+  &:active {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
