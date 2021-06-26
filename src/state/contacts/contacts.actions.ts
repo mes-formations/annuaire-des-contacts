@@ -17,3 +17,8 @@ export interface IGetContactsFailure {
   type: ActionTypes.GET_CONTACTS_FAILURE;
   payload: string;
 }
+
+export type Action =
+  | IGetContactsRequest
+  | IGetContactsSuccess
+  | IGetContactsFailure;
