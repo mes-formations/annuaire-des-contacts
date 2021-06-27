@@ -51,6 +51,9 @@ const initialState: IContactsState = {
   error: "",
 };
 
-export default (state: IContactsState = initialState, action: Action) => {
+export const contactsReducer = (
+  state: IContactsState = initialState,
+  action: Action
+) => {
   return state;
 };
