@@ -10,7 +10,7 @@ export interface IGetContactsRequest {
 
 export interface IGetContactsSuccess {
   type: ActionTypes.GET_CONTACTS_SUCESS;
-  payload: IContact[];
+  payload: Map<string, IContact>;
 }
 
 export interface IGetContactsFailure {

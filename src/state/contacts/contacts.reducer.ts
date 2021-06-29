@@ -3,14 +3,14 @@ import { Action } from "./contacts.actions";
 import { IContact } from "../../interfaces/i-contact";
 
 export interface IContactsState {
-  contacts: IContact[];
+  contacts: Map<string, IContact> | null;
   contact: IContact | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: IContactsState = {
-  contacts: [],
+  contacts: new Map<string, IContact>(),
   contact: null,
   loading: false,
   error: "",
@@ -21,7 +21,7 @@ export const contactsReducer = (
   action: Action
 ): IContactsState => {
   if (action.type === ActionTypes.GET_CONTACTS_REQUEST) {
-    return { ...state, loading: true, error: null, contacts: [] };
+    return { ...state, loading: true, error: null, contacts: null };
   }
 
   if (action.type === ActionTypes.GET_CONTACTS_SUCESS) {
@@ -29,7 +29,7 @@ export const contactsReducer = (
   }
 
   if (action.type === ActionTypes.GET_CONTACTS_FAILURE) {
-    return { ...state, loading: false, contacts: [], error: action.payload };
+    return { ...state, loading: false, contacts: null, error: action.payload };
   }
 
   if (action.type === ActionTypes.GET_CONTACT) {
@@ -37,9 +37,7 @@ export const contactsReducer = (
       ...state,
       loading: false,
       error: null,
-      contact:
-        state.contacts.find((contact) => contact.id === action.payload.id) ||
-        null,
+      contact: state.contacts?.get(action.payload.id) || null,
     };
   }
 
