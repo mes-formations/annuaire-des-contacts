@@ -1,27 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { IContact } from "../../../interfaces/i-contact";
-import contactApi from "../../../configs/contact.api";
+import { useSelector, useDispatch } from "react-redux";
+import { getContactById } from "../../../state/contacts/contacts.action-creators";
 
 type ContactIdParam = { id: string };
 
 type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
-  const [contact, setContact] = useState<IContact | null>(null);
-  async function fetchContactById(id: string) {
-    const { data } = await contactApi
-      .get<IContact>(`/${id}`)
-      .then((res) => res);
-    return data;
-  }
+  const { contact }: any = useSelector<any>((state) => state.contacts);
+  const dispatch = useDispatch();
   useEffect(() => {
-    (async () => {
-      const contact = await fetchContactById(match.params.id).then(
-        (data) => data
-      );
-      setContact(contact);
-    })();
+    dispatch(getContactById(match.params.id));
   }, []);
 
   return (
