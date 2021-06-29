@@ -4,7 +4,7 @@ import ContactItem from "../contact-item/contact-item.component";
 import "./styles.scss";
 
 interface ContactsCollectionProps {
-  contacts: IContact[];
+  contacts: Map<string, IContact>;
   deleteContact: (id: string) => void;
 }
 
@@ -12,6 +12,18 @@ const ContactsCollection: React.FC<ContactsCollectionProps> = ({
   contacts,
   deleteContact,
 }) => {
+  const addItem = () => {
+    const contactItems = [];
+    if (!contacts) {
+      return null;
+    }
+    for (let [key, value] of contacts.entries()) {
+      contactItems.push(
+        <ContactItem key={key} contact={value} deleteContact={deleteContact} />
+      );
+    }
+    return contactItems;
+  };
   return (
     <table>
       <thead>
@@ -24,15 +36,7 @@ const ContactsCollection: React.FC<ContactsCollectionProps> = ({
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        {contacts.map((contact) => (
-          <ContactItem
-            key={contact.id}
-            contact={contact}
-            deleteContact={deleteContact}
-          />
-        ))}
-      </tbody>
+      <tbody>{addItem()}</tbody>
     </table>
   );
 };

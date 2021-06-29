@@ -16,7 +16,9 @@ export const getContacts = () => {
 
       dispatch({
         type: ActionTypes.GET_CONTACTS_SUCESS,
-        payload: contacts,
+        payload: mapKeys<string, IContact>(contacts, (normalized, item) => {
+          normalized.set(item.id, item);
+        }),
       });
     } catch (err: AxiosError | any) {
       if (axios.isAxiosError(err)) {
