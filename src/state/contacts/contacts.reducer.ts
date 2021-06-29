@@ -4,12 +4,14 @@ import { IContact } from "../../interfaces/i-contact";
 
 export interface IContactsState {
   contacts: IContact[];
+  contact: IContact | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: IContactsState = {
   contacts: [],
+  contact: null,
   loading: false,
   error: "",
 };
