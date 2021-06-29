@@ -2,7 +2,7 @@ import { ActionTypes } from "./contacts.action-types";
 import { IContact } from "../../interfaces/i-contact";
 import { Dispatch } from "redux";
 import ContactsAPI from "../../configs/contact.api";
-import { Action as ContactsActions } from "./contacts.actions";
+import { Action as ContactsActions, IGetContact } from "./contacts.actions";
 import axios, { AxiosError } from "axios";
 
 export const getContacts = () => {
@@ -24,4 +24,8 @@ export const getContacts = () => {
       }
     }
   };
+};
+
+export const getContactById = (id: string): IGetContact => {
+  return { type: ActionTypes.GET_CONTACT, payload: { id: id } };
 };
