@@ -4,6 +4,6 @@ export enum ActionTypes {
   GET_CONTACTS_SUCESS = "get_contacts_success",
   GET_CONTACTS_FAILURE = "get_contacts_failure",
 
-  //GET /api/contact
+  //GET /api/contacts/:id
   GET_CONTACT = "get_contact",
 }
