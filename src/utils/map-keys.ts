@@ -1,6 +1,3 @@
-import { normalize } from "path";
-import { IContact } from "../interfaces/i-contact";
-
 /**
  * 
  * @param collection 
