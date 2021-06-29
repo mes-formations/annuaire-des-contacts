@@ -23,9 +23,11 @@ export interface IGetContactsFailure {
  */
 export interface IGetContact {
   type: ActionTypes.GET_CONTACT;
+  payload: { id: string };
 }
 
 export type Action =
   | IGetContactsRequest
   | IGetContactsSuccess
-  | IGetContactsFailure;
+  | IGetContactsFailure
+  | IGetContact;

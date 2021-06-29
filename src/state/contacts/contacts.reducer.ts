@@ -32,5 +32,16 @@ export const contactsReducer = (
     return { ...state, loading: false, contacts: [], error: action.payload };
   }
 
+  if (action.type === ActionTypes.GET_CONTACT) {
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      contact:
+        state.contacts.find((contact) => contact.id === action.payload.id) ||
+        null,
+    };
+  }
+
   return state;
 };
