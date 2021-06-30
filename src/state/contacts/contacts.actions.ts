@@ -9,7 +9,7 @@ export interface IGetContactsRequest {
 }
 
 export interface IGetContactsSuccess {
-  type: ActionTypes.GET_CONTACTS_SUCESS;
+  type: ActionTypes.GET_CONTACTS_SUCCESS;
   payload: Map<string, IContact>;
 }
 
@@ -22,8 +22,7 @@ export interface IGetContactsFailure {
  * GET /api/contacts/:id
  */
 export interface IGetContact {
-  type: ActionTypes.GET_CONTACT;
-  payload: { id: string };
+  type: ActionTypes.GET_CONTACT_REQUEST;
 }
 
 export type Action =

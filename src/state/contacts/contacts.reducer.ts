@@ -24,7 +24,7 @@ export const contactsReducer = (
     return { ...state, loading: true, error: null, contacts: null };
   }
 
-  if (action.type === ActionTypes.GET_CONTACTS_SUCESS) {
+  if (action.type === ActionTypes.GET_CONTACTS_SUCCESS) {
     return { ...state, loading: false, error: null, contacts: action.payload };
   }
 

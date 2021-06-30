@@ -15,7 +15,7 @@ export const getContacts = () => {
       );
 
       dispatch({
-        type: ActionTypes.GET_CONTACTS_SUCESS,
+        type: ActionTypes.GET_CONTACTS_SUCCESS,
         payload: mapKeys<string, IContact>(contacts, (normalized, item) => {
           normalized.set(item.id, item);
         }),
