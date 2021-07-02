@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getContactByID } from "../../../state/contacts/contacts.action-creators";
+import { ActionTypes } from "../../../state/contacts/contacts.action-types";
+import { Loader } from "../../../components/shared/loader/loader";
 
 type ContactIdParam = { id: string };
 
@@ -9,6 +11,9 @@ type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   const { contact }: any = useSelector<any>((state) => state.contacts);
+  const loading: any = useSelector<any>(
+    (state) => state.apiLoading[ActionTypes.GET_CONTACT]
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getContactByID(match.params.id));
@@ -17,6 +22,7 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   return (
     <>
       <h1>Détails de contact</h1>
+      {loading && <Loader />}
       {contact && (
         <>
           <h2>
