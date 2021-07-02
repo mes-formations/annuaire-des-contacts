@@ -14,6 +14,9 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   const loading: any = useSelector<any>(
     (state) => state.apiLoading[ActionTypes.GET_CONTACT]
   );
+  const error: any = useSelector<any>(
+    (state) => state.apiError[ActionTypes.GET_CONTACT]
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getContactByID(match.params.id));
@@ -23,6 +26,7 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
     <>
       <h1>Détails de contact</h1>
       {loading && <Loader />}
+      {/* {error && } */}
       {contact && (
         <>
           <h2>
