@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection";
 import "./style.scss";
 import { getContacts } from "../../../state/contacts/contacts.action-creators";
+import { selectContacts } from "../../../state/contacts/contacts.selectors";
 import { useDispatch, useSelector } from "react-redux";
 
 const ContactsList: React.FC = () => {
   const dispatch = useDispatch();
-  const contacts: any = useSelector<any>((state) => state.contacts);
+  const contacts: any = useSelector<any>(selectContacts);
   const deleteContact = (id: string) => {
     console.log("Delete contact of id : ", id);
   };

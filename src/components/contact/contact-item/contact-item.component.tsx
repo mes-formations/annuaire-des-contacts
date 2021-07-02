@@ -19,7 +19,11 @@ const ContactItem: React.FC<ContactItemProps> = ({
       <td>{position}</td>
       <td>{phone_number}</td>
       <td>
-        <Link className="btn btn--primary" to={`/contacts/${id}`}>
+        {/* <Link className="btn btn--primary" to={`/contacts/${id}`}>
+          
+          Voir
+        </Link> */}
+        <Link className="btn btn--primary" to={`/test-show/${id}`}>
           Voir
         </Link>
         <button className="btn btn--danger" onClick={() => deleteContact(id)}>

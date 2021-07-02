@@ -1,26 +1,29 @@
 import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getContactById } from "../../../state/contacts/contacts.action-creators";
 import { selectContactById } from "../../../state/contacts/contacts.selectors";
+import { getContactById } from "../../../state/contacts/contacts.action-creators";
+import { createLoadingSelector } from "../../../state/api/selectors";
+import { contactsReducer } from "../../../state/contacts/contacts.reducer";
 
 type ContactIdParam = { id: string };
 
 type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
-const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
-  // const { contact }: any = useSelector<any>((state) => state.contacts);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getContactById(match.params.id));
-  // }, []);
-  const contact: any = useSelector<any>((state) =>
-    selectContactById(state, match.params.id)
-  );
+const ContactShowV2: React.FC<ContactDetailsRouterProps> = ({ match }) => {
+  const contact: any = useSelector<any>((state) => state.oneContact.contact);
+  //   const loadingSelect = createLoadingSelector(["get_contact"]);
+  const loading = useSelector<any>((state) => state.isFetching["get_contact"]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContactById(match.params.id));
+  }, []);
 
   return (
     <>
-      <h1>Détails de contact</h1>
+      <h1>Oyo e'a v2</h1>
+      {loading && <div>Chargement...</div>}
       {contact && (
         <>
           <h2>
@@ -41,4 +44,4 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   );
 };
 
-export default ContactShow;
+export default ContactShowV2;

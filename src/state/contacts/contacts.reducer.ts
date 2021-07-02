@@ -5,15 +5,15 @@ import { IContact } from "../../interfaces/i-contact";
 export interface IContactsState {
   contacts: Map<string, IContact> | null;
   contact: IContact | null;
-  loading: boolean;
-  error: string | null;
+  loading_contacts: boolean;
+  contacts_error: string | null;
 }
 
 const initialState: IContactsState = {
   contacts: new Map<string, IContact>(),
   contact: null,
-  loading: false,
-  error: "",
+  loading_contacts: false,
+  contacts_error: "",
 };
 
 export const contactsReducer = (
@@ -21,23 +21,29 @@ export const contactsReducer = (
   action: Action
 ): IContactsState => {
   if (action.type === ActionTypes.GET_CONTACTS_REQUEST) {
-    return { ...state, loading: true, error: null, contacts: null };
+    return {
+      ...state,
+      loading_contacts: true,
+      contacts_error: null,
+      contacts: null,
+    };
   }
 
   if (action.type === ActionTypes.GET_CONTACTS_SUCCESS) {
-    return { ...state, loading: false, error: null, contacts: action.payload };
+    return {
+      ...state,
+      loading_contacts: false,
+      contacts_error: null,
+      contacts: action.payload,
+    };
   }
 
   if (action.type === ActionTypes.GET_CONTACTS_FAILURE) {
-    return { ...state, loading: false, contacts: null, error: action.payload };
-  }
-
-  if (action.type === ActionTypes.GET_CONTACT) {
     return {
       ...state,
-      loading: false,
-      error: null,
-      contact: state.contacts?.get(action.payload.id) || null,
+      loading_contacts: false,
+      contacts: null,
+      contacts_error: action.payload,
     };
   }
 
