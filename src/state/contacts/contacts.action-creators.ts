@@ -36,3 +36,24 @@ export const getContacts = () => {
 export const getContactById = (id: string): IGetContact => {
   return { type: ActionTypes.GET_CONTACT, payload: { id: id } };
 };
+
+export const getContactByID = (id: string) => {
+  return async (dispatch: Dispatch<ContactsActions>) => {
+    try {
+      dispatch({ type: ActionTypes.GET_CONTACT_REQUEST });
+      const contact = await ContactsAPI.get<IContact>("/" + id).then(
+        (res) => res.data
+      );
+      dispatch({ type: ActionTypes.GET_CONTACT_SUCCESS, payload: contact });
+    } catch (err: AxiosError | any) {
+      if (axios.isAxiosError(err)) {
+        dispatch({
+          type: ActionTypes.GET_CONTACTS_FAILURE,
+          payload: err.response?.data,
+        });
+      } else {
+        dispatch({ type: ActionTypes.GET_CONTACTS_FAILURE, payload: "Erreur" });
+      }
+    }
+  };
+};
