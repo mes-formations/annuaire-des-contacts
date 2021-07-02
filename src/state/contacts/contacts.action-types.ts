@@ -1,4 +1,7 @@
 export enum ActionTypes {
+  // Main actions
+  GET_CONTACTS = "get_contacts",
+  GET_CONTACT = "get_contact",
   // GET /api/contacts
   GET_CONTACTS_REQUEST = "get_contacts_request",
   GET_CONTACTS_SUCESS = "get_contacts_success",

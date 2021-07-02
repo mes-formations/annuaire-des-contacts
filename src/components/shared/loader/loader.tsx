@@ -1,4 +1,4 @@
-import "./loader.styles.scss";
+import "./style.scss";
 
 interface LoaderProps {
   modifier?: string;
