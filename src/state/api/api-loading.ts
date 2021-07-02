@@ -13,8 +13,13 @@ type LoadingState = { [key in ActionTypes]?: boolean };
 
 type Actions = IGetContactRequest | IGetContactsRequest;
 
+const initialState: LoadingState = {
+  get_contact: false,
+  get_contacts: false,
+};
+
 export const loadingReducer = (
-  state: LoadingState,
+  state: LoadingState = initialState,
   action: Actions
 ): LoadingState => {
   const { type } = action;
