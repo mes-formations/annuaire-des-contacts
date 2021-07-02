@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getContactByID } from "../../../state/contacts/contacts.action-creators";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Loader } from "../../../components/shared/loader/loader";
+import { Error } from "../../../components/shared/error/error";
 
 type ContactIdParam = { id: string };
 
@@ -26,7 +27,7 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
     <>
       <h1>Détails de contact</h1>
       {loading && <Loader />}
-      {/* {error && } */}
+      {error && <Error message={error} />}
       {contact && (
         <>
           <h2>

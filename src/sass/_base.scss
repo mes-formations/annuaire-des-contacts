@@ -3,12 +3,14 @@ $primary-yellow: #fed94c;
 $primary-blue: #001f33;
 $table-border: #eeeeee;
 $color-white: #fff;
+$color-danger: #f80103;
 :root {
   --primary-red: #{$primary-red};
   --primary-yellow: #{$primary-yellow};
   --primary-blue: #{$primary-blue};
   --table-border: #{$table-border};
   --color-white: #{$color-white};
+  --color-danger: #{$color-danger};
 }
 
 *,

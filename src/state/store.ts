@@ -5,9 +5,9 @@ import rootReducer from "./root.reducer";
 const store = createStore(
   rootReducer,
   compose(
-    applyMiddleware(Thunk)
-    /*(window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-      (window as any).__REDUX_DEVTOOLS_EXTENSION__()*/
+    applyMiddleware(Thunk),
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 
