@@ -20,6 +20,7 @@ export const contactsReducer = (
   state: IContactsState = initialState,
   action: Action
 ): IContactsState => {
+  // GET /contacts
   if (action.type === ActionTypes.GET_CONTACTS_REQUEST) {
     return { ...state, loading: true, error: null, contacts: null };
   }
@@ -32,6 +33,7 @@ export const contactsReducer = (
     return { ...state, loading: false, contacts: null, error: action.payload };
   }
 
+  // GET /contacts:id
   if (action.type === ActionTypes.GET_CONTACT) {
     return {
       ...state,
@@ -39,6 +41,17 @@ export const contactsReducer = (
       error: null,
       contact: state.contacts?.get(action.payload.id) || null,
     };
+  }
+
+  if (action.type === ActionTypes.GET_CONTACT_REQUEST) {
+    return { ...state, loading: true, error: null };
+  }
+
+  if (action.type === ActionTypes.GET_CONTACT_SUCCESS) {
+    return { ...state, loading: false, error: null, contact: action.payload };
+  }
+  if (action.type === ActionTypes.GET_CONTACT_FAILURE) {
+    return { ...state, loading: false, error: action.payload };
   }
 
   return state;
