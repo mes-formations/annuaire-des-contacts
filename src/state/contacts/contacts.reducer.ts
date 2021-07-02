@@ -34,14 +34,6 @@ export const contactsReducer = (
   }
 
   // GET /contacts:id
-  if (action.type === ActionTypes.GET_CONTACT) {
-    return {
-      ...state,
-      loading: false,
-      error: null,
-      contact: state.contacts?.get(action.payload.id) || null,
-    };
-  }
 
   if (action.type === ActionTypes.GET_CONTACT_REQUEST) {
     return { ...state, loading: true, error: null };

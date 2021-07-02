@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getContactById } from "../../../state/contacts/contacts.action-creators";
+import { getContactByID } from "../../../state/contacts/contacts.action-creators";
 
 type ContactIdParam = { id: string };
 
@@ -11,7 +11,7 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   const { contact }: any = useSelector<any>((state) => state.contacts);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getContactById(match.params.id));
+    dispatch(getContactByID(match.params.id));
   }, []);
 
   return (

@@ -2,10 +2,11 @@ import { ActionTypes } from "./contacts.action-types";
 import { IContact } from "../../interfaces/i-contact";
 import { Dispatch } from "redux";
 import ContactsAPI from "../../configs/contact.api";
-import { Action as ContactsActions, IGetContact } from "./contacts.actions";
+import { Action as ContactsActions } from "./contacts.actions";
 import axios, { AxiosError } from "axios";
 import { mapKeys } from "../../utils/map-keys";
 
+// GET /api/contacts
 export const getContacts = () => {
   return async (dispatch: Dispatch<ContactsActions>) => {
     dispatch({ type: ActionTypes.GET_CONTACTS_REQUEST });
@@ -33,10 +34,7 @@ export const getContacts = () => {
   };
 };
 
-export const getContactById = (id: string): IGetContact => {
-  return { type: ActionTypes.GET_CONTACT, payload: { id: id } };
-};
-
+// GET /api/contacts/:id
 export const getContactByID = (id: string) => {
   return async (dispatch: Dispatch<ContactsActions>) => {
     try {
