@@ -25,7 +25,7 @@ export const getContacts = () => {
       if (axios.isAxiosError(err)) {
         dispatch({
           type: ActionTypes.GET_CONTACTS_FAILURE,
-          payload: err.response?.data,
+          payload: err.message,
         });
       } else {
         dispatch({ type: ActionTypes.GET_CONTACTS_FAILURE, payload: "Erreur" });
@@ -46,11 +46,11 @@ export const getContactByID = (id: string) => {
     } catch (err: AxiosError | any) {
       if (axios.isAxiosError(err)) {
         dispatch({
-          type: ActionTypes.GET_CONTACTS_FAILURE,
-          payload: err.response?.data,
+          type: ActionTypes.GET_CONTACT_FAILURE,
+          payload: err.message,
         });
       } else {
-        dispatch({ type: ActionTypes.GET_CONTACTS_FAILURE, payload: "Erreur" });
+        dispatch({ type: ActionTypes.GET_CONTACT_FAILURE, payload: "Erreur" });
       }
     }
   };

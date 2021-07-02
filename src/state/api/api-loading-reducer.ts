@@ -18,7 +18,7 @@ const initialState: LoadingState = {
   get_contacts: false,
 };
 
-export const loadingReducer = (
+export const apiLoadingReducer = (
   state: LoadingState = initialState,
   action: Actions
 ): LoadingState => {

@@ -6,6 +6,7 @@ import { ActionTypes } from "./contacts.action-types";
  */
 export interface IGetContactsRequest {
   type: ActionTypes.GET_CONTACTS_REQUEST;
+  payload?: any;
 }
 
 export interface IGetContactsSuccess {
@@ -23,6 +24,7 @@ export interface IGetContactsFailure {
  */
 export interface IGetContactRequest {
   type: ActionTypes.GET_CONTACT_REQUEST;
+  payload?: any;
 }
 
 export interface IGetContactSuccess {

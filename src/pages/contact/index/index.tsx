@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection";
 import "./style.scss";
 import { getContacts } from "../../../state/contacts/contacts.action-creators";

@@ -24,16 +24,9 @@ export const contactsReducer = (
     return { ...state, error: null, contacts: action.payload };
   }
 
-  if (action.type === ActionTypes.GET_CONTACTS_FAILURE) {
-    return { ...state, contacts: null, error: action.payload };
-  }
-
   // GET /contacts:id
   if (action.type === ActionTypes.GET_CONTACT_SUCCESS) {
     return { ...state, error: null, contact: action.payload };
-  }
-  if (action.type === ActionTypes.GET_CONTACT_FAILURE) {
-    return { ...state, error: action.payload };
   }
 
   return state;
