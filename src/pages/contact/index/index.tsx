@@ -5,6 +5,7 @@ import { getContacts } from "../../../state/contacts/contacts.action-creators";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../../components/shared/loader/loader";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
+import { Error } from "../../../components/shared/error/error";
 
 const ContactsList: React.FC = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,11 @@ const ContactsList: React.FC = () => {
   const loading: any = useSelector<any>(
     (state) => state.apiLoading[ActionTypes.GET_CONTACTS]
   );
+
+  const error: any = useSelector<any>(
+    (state) => state.apiError[ActionTypes.GET_CONTACTS]
+  );
+
   const deleteContact = (id: string) => {
     console.log("Delete contact of id : ", id);
   };
@@ -23,6 +29,7 @@ const ContactsList: React.FC = () => {
     <>
       <h1>Liste des contacts</h1>
       {loading && <Loader />}
+      {error && <Error message={error} />}
       {contacts && (
         <ContactsCollection deleteContact={deleteContact} contacts={contacts} />
       )}
