@@ -8,6 +8,7 @@ import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Error } from "../../../components/shared/error/error";
 import {
   selectContacts,
+  selectContactsError,
   selectContactsLoading,
 } from "../../../state/contacts/contacts.selectors";
 
@@ -21,8 +22,8 @@ const ContactsList: React.FC = () => {
     selectContactsLoading(ActionTypes.GET_CONTACTS)(state)
   );
 
-  const error: any = useSelector<any>(() =>
-    selectContactsLoading(ActionTypes.GET_CONTACT)
+  const error: any = useSelector<any>((state) =>
+    selectContactsError(ActionTypes.GET_CONTACT)(state)
   );
 
   const deleteContact = (id: string) => {
