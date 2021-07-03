@@ -5,8 +5,8 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { loader } from "webpack";
 import Layout from "./components/layout/layout";
+import { Loader } from "./components/shared/loader/loader";
 
 const Homepage = lazy(() =>
   import(/* webpackChunkName: "home" */ "./pages/home/home")
@@ -21,7 +21,7 @@ const ContactShow = lazy(() =>
 const App: React.FC = () => {
   return (
     <Router>
-      <Suspense fallback={<div></div>}>
+      <Suspense fallback={<Loader />}>
         <Layout>
           <Switch>
             <Route exact path="/home">
