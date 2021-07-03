@@ -6,16 +6,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../../components/shared/loader/loader";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Error } from "../../../components/shared/error/error";
+import {
+  selectContacts,
+  selectContactsLoading,
+} from "../../../state/contacts/contacts.selectors";
 
 const ContactsList: React.FC = () => {
   const dispatch = useDispatch();
-  const contacts: any = useSelector<any>((state) => state.contacts.contacts);
-  const loading: any = useSelector<any>(
-    (state) => state.apiLoading[ActionTypes.GET_CONTACTS]
+  const contacts: any = useSelector<any>(selectContacts);
+  const loading: any = useSelector<any>((state) =>
+    selectContactsLoading(ActionTypes.GET_CONTACTS)(state)
   );
 
-  const error: any = useSelector<any>(
-    (state) => state.apiError[ActionTypes.GET_CONTACTS]
+  console.log("Loading : ", loading);
+
+  const error: any = useSelector<any>(() =>
+    selectContactsLoading(ActionTypes.GET_CONTACT)
   );
 
   const deleteContact = (id: string) => {
