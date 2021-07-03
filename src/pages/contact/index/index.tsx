@@ -13,12 +13,13 @@ import {
 
 const ContactsList: React.FC = () => {
   const dispatch = useDispatch();
+
+  // TODO create a reusable hook thats takes : actor creators,state name as a string,actiontype
+  // const {data,loading,error}=useContacts(getContacts,"contacts","get_contact")
   const contacts: any = useSelector<any>(selectContacts);
   const loading: any = useSelector<any>((state) =>
     selectContactsLoading(ActionTypes.GET_CONTACTS)(state)
   );
-
-  console.log("Loading : ", loading);
 
   const error: any = useSelector<any>(() =>
     selectContactsLoading(ActionTypes.GET_CONTACT)
