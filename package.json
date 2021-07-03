@@ -22,6 +22,7 @@
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
+    "source-map-explorer": "^2.5.2",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -30,7 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api-server": "json-server --watch ./mock-api/database.json -p 3333"
+    "api-server": "json-server --watch ./mock-api/database.json -p 3333",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "webpack-bundle-analyser": "^1.4.0"
   }
 }
