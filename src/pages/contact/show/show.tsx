@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getContactByID } from "../../../state/contacts/contacts.action-creators";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Loader } from "../../../components/shared/loader/loader";
@@ -10,19 +10,20 @@ import {
   selectContactsError,
   selectContactsLoading,
 } from "../../../state/contacts/contacts.selectors";
+import { useTypedSelector } from "../../../hook/use-typed-selector";
 
 type ContactIdParam = { id: string };
 
 type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
-  const contact: any = useSelector<any>(selectContact);
+  const contact: any = useTypedSelector(selectContact);
 
-  const loading: any = useSelector<any>((state) =>
+  const loading: any = useTypedSelector((state) =>
     selectContactsLoading(ActionTypes.GET_CONTACT)(state)
   );
 
-  const error: any = useSelector<any>((state) =>
+  const error: any = useTypedSelector((state) =>
     selectContactsError(ActionTypes.GET_CONTACT)(state)
   );
 
