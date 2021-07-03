@@ -19,12 +19,12 @@ const ContactsList: React.FC = () => {
   // TODO create a reusable hook thats takes : actor creators,state name as a string,actiontype
   // const {data,loading,error}=useContacts(getContacts,"contacts","get_contact")
   // TODO : As this logic is not very different from the one in show page, can we create a high order component??
-  const contacts: any = useTypedSelector(selectContacts);
-  const loading: any = useTypedSelector((state) =>
+  const contacts = useTypedSelector(selectContacts);
+  const loading = useTypedSelector((state) =>
     selectContactsLoading(ActionTypes.GET_CONTACTS)(state)
   );
 
-  const error: any = useTypedSelector((state) =>
+  const error = useTypedSelector((state) =>
     selectContactsError(ActionTypes.GET_CONTACTS)(state)
   );
 

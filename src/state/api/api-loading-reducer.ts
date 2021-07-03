@@ -4,11 +4,6 @@ import {
   IGetContactsRequest,
 } from "../contacts/contacts.actions";
 
-// type LoadingState = Record<
-//   ActionTypes.GET_CONTACT | ActionTypes.GET_CONTACTS,
-//   boolean
-// >;
-
 type LoadingState = { [key in ActionTypes]?: boolean };
 
 type Actions = IGetContactRequest | IGetContactsRequest;

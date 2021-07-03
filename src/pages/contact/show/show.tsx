@@ -17,13 +17,13 @@ type ContactIdParam = { id: string };
 type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
-  const contact: any = useTypedSelector(selectContact);
+  const contact = useTypedSelector(selectContact);
 
-  const loading: any = useTypedSelector((state) =>
+  const loading = useTypedSelector((state) =>
     selectContactsLoading(ActionTypes.GET_CONTACT)(state)
   );
 
-  const error: any = useTypedSelector((state) =>
+  const error = useTypedSelector((state) =>
     selectContactsError(ActionTypes.GET_CONTACT)(state)
   );
 
