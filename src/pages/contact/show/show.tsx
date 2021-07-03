@@ -5,19 +5,27 @@ import { getContactByID } from "../../../state/contacts/contacts.action-creators
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Loader } from "../../../components/shared/loader/loader";
 import { Error } from "../../../components/shared/error/error";
+import {
+  selectContact,
+  selectContactsError,
+  selectContactsLoading,
+} from "../../../state/contacts/contacts.selectors";
 
 type ContactIdParam = { id: string };
 
 type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
-  const { contact }: any = useSelector<any>((state) => state.contacts);
-  const loading: any = useSelector<any>(
-    (state) => state.apiLoading[ActionTypes.GET_CONTACT]
+  const contact: any = useSelector<any>(selectContact);
+
+  const loading: any = useSelector<any>((state) =>
+    selectContactsLoading(ActionTypes.GET_CONTACT)(state)
   );
-  const error: any = useSelector<any>(
-    (state) => state.apiError[ActionTypes.GET_CONTACT]
+
+  const error: any = useSelector<any>((state) =>
+    selectContactsError(ActionTypes.GET_CONTACT)(state)
   );
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getContactByID(match.params.id));
