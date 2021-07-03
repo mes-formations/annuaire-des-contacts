@@ -2,10 +2,10 @@ import { RootState } from "../root.reducer";
 import { ActionTypes } from "./contacts.action-types";
 
 // Select all contacts
-export const selectContacts = (state: RootState) => state.contacts.contacts;
+export const selectContacts = (state: RootState) => state.contacts.collection;
 
 //   select single contact
-export const selectContact = (state: RootState) => state.contacts.contact;
+export const selectContact = (state: RootState) => state.contacts.selected;
 
 // Common selectors
 export const selectContactsLoading =

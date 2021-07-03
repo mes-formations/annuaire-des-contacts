@@ -3,13 +3,13 @@ import { Action } from "./contacts.actions";
 import { IContact } from "../../interfaces/i-contact";
 
 export interface IContactsState {
-  contacts: Map<string, IContact> | null;
-  contact: IContact | null;
+  collection: Map<string, IContact> | null;
+  selected: IContact | null;
 }
 
 const initialState: IContactsState = {
-  contacts: new Map<string, IContact>(),
-  contact: null,
+  collection: new Map<string, IContact>(),
+  selected: null,
 };
 
 export const contactsReducer = (
@@ -19,12 +19,12 @@ export const contactsReducer = (
   // GET /contacts
 
   if (action.type === ActionTypes.GET_CONTACTS_SUCESS) {
-    return { ...state, contacts: action.payload };
+    return { ...state, collection: action.payload };
   }
 
   // GET /contacts:id
   if (action.type === ActionTypes.GET_CONTACT_SUCCESS) {
-    return { ...state, contact: action.payload };
+    return { ...state, selected: action.payload };
   }
 
   return state;
