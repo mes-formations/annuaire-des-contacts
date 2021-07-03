@@ -9,4 +9,6 @@ const rootReducer = combineReducers({
   apiError: apiErrorReducer,
 });
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 export default rootReducer;
