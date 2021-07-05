@@ -13,7 +13,7 @@ import { useActions } from "../../../hook/use-actions";
 import { LoaderText } from "../../../components/shared/loader-text/loader-text";
 
 const ContactsList: React.FC = () => {
-  const { getContacts } = useActions();
+  const { getContacts, deleteContact: removeContact } = useActions();
   // TODO create a reusable hook thats takes : actor creators,state name as a string,actiontype
   // const {data,loading,error}=useContacts(getContacts,"contacts","get_contact")
   // TODO : As this logic is not very different from the one in show page, can we create a high order component??
@@ -30,7 +30,7 @@ const ContactsList: React.FC = () => {
   );
 
   const deleteContact = (id: string) => {
-    console.log("Delete contact of id : ", id);
+    removeContact(id);
   };
 
   useEffect(() => {
