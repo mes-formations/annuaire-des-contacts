@@ -10,6 +10,7 @@ import {
 } from "../../../state/contacts/contacts.selectors";
 import { useTypedSelector } from "../../../hook/use-typed-selector";
 import { useActions } from "../../../hook/use-actions";
+import { LoaderText } from "../../../components/shared/loader-text/loader-text";
 
 type ContactIdParam = { id: string };
 
@@ -22,11 +23,15 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
     selectContactsLoading(ActionTypes.GET_CONTACT)(state)
   );
 
+  const deletionLoading = useTypedSelector((state) =>
+    selectContactsLoading(ActionTypes.DELETE_CONTACT)(state)
+  );
+
   const error = useTypedSelector((state) =>
     selectContactsError(ActionTypes.GET_CONTACT)(state)
   );
 
-  const { getContactByID } = useActions();
+  const { getContactByID, deleteContact } = useActions();
 
   useEffect(() => {
     getContactByID(match.params.id);
@@ -35,7 +40,18 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   return (
     <>
       <h1>Détails de contact</h1>
-      {loading && <LoaderRounded />}
+      {loading && (
+        <LoaderText
+          action={ActionTypes.DELETE_CONTACT}
+          message="Suppression en cours..."
+        />
+      )}
+      {deletionLoading && (
+        <LoaderText
+          action={ActionTypes.DELETE_CONTACT}
+          message="Suppression en cours..."
+        />
+      )}
       {error && <Error message={error} />}
       {contact && (
         <>
@@ -51,6 +67,12 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
             <a href={`tel:${contact.phone_number}`}>{contact.phone_number}</a>
           </p>
           <p>Adresse : {contact.work_address}</p>
+          <button
+            className="btn btn--danger"
+            onClick={() => deleteContact(match.params.id)}
+          >
+            Supprimer
+          </button>
         </>
       )}
     </>
