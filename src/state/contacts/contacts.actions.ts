@@ -37,10 +37,28 @@ export interface IGetContactFailure {
   payload: string;
 }
 
+// DELETE /api/contacts/:id
+export interface IDeleteContactRequest {
+  type: ActionTypes.DELETE_CONTACT_REQUEST;
+}
+
+export interface IDeleteContactSuccess {
+  type: ActionTypes.DELETE_CONTACT_SUCCESS;
+  payload: { id: string }; //With this id i'll delete the ressource locally
+}
+
+export interface IDeleteContactFailure {
+  type: ActionTypes.DELETE_CONTACT_FAILURE;
+  payload: string;
+}
+
 export type Action =
   | IGetContactsRequest
   | IGetContactsSuccess
   | IGetContactsFailure
   | IGetContactRequest
   | IGetContactSuccess
+  | IGetContactFailure
+  | IDeleteContactRequest
+  | IDeleteContactSuccess
   | IGetContactFailure;
