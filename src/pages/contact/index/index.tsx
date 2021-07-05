@@ -21,6 +21,9 @@ const ContactsList: React.FC = () => {
   const loading = useTypedSelector((state) =>
     selectContactsLoading(ActionTypes.GET_CONTACTS)(state)
   );
+  const deletionLoading = useTypedSelector((state) =>
+    selectContactsLoading(ActionTypes.DELETE_CONTACT)(state)
+  );
 
   const error = useTypedSelector((state) =>
     selectContactsError(ActionTypes.GET_CONTACTS)(state)
@@ -36,14 +39,17 @@ const ContactsList: React.FC = () => {
   return (
     <>
       <h1>Liste des contacts</h1>
-      <LoaderText
-        action={ActionTypes.DELETE_CONTACT}
-        message="Suppression en cours"
-      />
+
       {loading && (
         <LoaderText
           action={ActionTypes.GET_CONTACTS}
           message="Recupération des contacts"
+        />
+      )}
+      {deletionLoading && (
+        <LoaderText
+          action={ActionTypes.DELETE_CONTACT}
+          message="Suppression en cours"
         />
       )}
       {error && <Error message={error} />}
