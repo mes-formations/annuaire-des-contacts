@@ -1,12 +1,14 @@
 import { lazy, Suspense } from "react";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
 import Layout from "./components/layout/layout";
+import { ConnectedRouter } from "connected-react-router";
 import { LoaderRounded } from "./components/shared/loading-rounded/loader-rounded";
+import { history } from "./state/store";
 
 const Homepage = lazy(() =>
   import(/* webpackChunkName: "home" */ "./pages/home/home")
@@ -20,7 +22,7 @@ const ContactShow = lazy(() =>
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <ConnectedRouter history={history}>
       <Suspense fallback={<LoaderRounded />}>
         <Layout>
           <Switch>
@@ -33,7 +35,7 @@ const App: React.FC = () => {
           </Switch>
         </Layout>
       </Suspense>
-    </Router>
+    </ConnectedRouter>
   );
 };
 

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
-import { LoaderRounded } from "../../../components/shared/loading-rounded/loader-rounded";
 import { Error } from "../../../components/shared/error/error";
 import {
   selectContact,
