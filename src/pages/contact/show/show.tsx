@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
-import { Loader } from "../../../components/shared/loader/loader";
+import { LoaderRounded } from "../../../components/shared/loading-rounded/loader-rounded";
 import { Error } from "../../../components/shared/error/error";
 import {
   selectContact,
@@ -35,7 +35,7 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   return (
     <>
       <h1>Détails de contact</h1>
-      {loading && <Loader />}
+      {loading && <LoaderRounded />}
       {error && <Error message={error} />}
       {contact && (
         <>

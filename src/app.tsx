@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Layout from "./components/layout/layout";
-import { Loader } from "./components/shared/loader/loader";
+import { LoaderRounded } from "./components/shared/loading-rounded/loader-rounded";
 
 const Homepage = lazy(() =>
   import(/* webpackChunkName: "home" */ "./pages/home/home")
@@ -21,7 +21,7 @@ const ContactShow = lazy(() =>
 const App: React.FC = () => {
   return (
     <Router>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<LoaderRounded />}>
         <Layout>
           <Switch>
             <Route exact path="/home">

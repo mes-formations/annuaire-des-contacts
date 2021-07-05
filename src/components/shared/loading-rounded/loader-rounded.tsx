@@ -1,10 +1,10 @@
 import "./style.scss";
 
-interface LoaderProps {
+interface LoaderRoundedProps {
   modifier?: string;
 }
 
-export const Loader: React.FC<LoaderProps> = ({
+export const LoaderRounded: React.FC<LoaderRoundedProps> = ({
   modifier = "loader--blue",
 }) => {
   return (

@@ -1,0 +1,25 @@
+.toast {
+  color: var(--color-red);
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 3rem 0;
+  animation: deletion 0.8s linear infinite;
+  -webkit-animation: deletion 0.8s linear infinite;
+}
+
+.primary {
+  color: #000;
+}
+
+.danger {
+  color: red;
+}
+
+@keyframes deletion {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

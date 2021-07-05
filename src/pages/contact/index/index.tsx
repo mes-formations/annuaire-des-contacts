@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import ContactsCollection from "../../../components/contact/contacts-collection/contacts-collection";
 import "./style.scss";
-import { Loader } from "../../../components/shared/loader/loader";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Error } from "../../../components/shared/error/error";
 import {
@@ -11,6 +10,7 @@ import {
 } from "../../../state/contacts/contacts.selectors";
 import { useTypedSelector } from "../../../hook/use-typed-selector";
 import { useActions } from "../../../hook/use-actions";
+import { LoaderText } from "../../../components/shared/loader-text/loader-text";
 
 const ContactsList: React.FC = () => {
   const { getContacts } = useActions();
@@ -36,7 +36,16 @@ const ContactsList: React.FC = () => {
   return (
     <>
       <h1>Liste des contacts</h1>
-      {loading && <Loader />}
+      <LoaderText
+        action={ActionTypes.DELETE_CONTACT}
+        message="Suppression en cours"
+      />
+      {loading && (
+        <LoaderText
+          action={ActionTypes.GET_CONTACTS}
+          message="Recupération des contacts"
+        />
+      )}
       {error && <Error message={error} />}
       {contacts && (
         <ContactsCollection deleteContact={deleteContact} contacts={contacts} />
