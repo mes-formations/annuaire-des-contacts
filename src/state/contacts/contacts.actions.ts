@@ -61,4 +61,4 @@ export type Action =
   | IGetContactFailure
   | IDeleteContactRequest
   | IDeleteContactSuccess
-  | IGetContactFailure;
+  | IDeleteContactFailure;
