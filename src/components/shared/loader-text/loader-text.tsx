@@ -8,7 +8,10 @@ interface LoaderText {
 
 export const LoaderText: React.FC<LoaderText> = ({ message, action }) => {
   const setActionClass = (actionType: ActionTypes) => {
-    if (actionType === ActionTypes.GET_CONTACTS) {
+    if (
+      actionType === ActionTypes.GET_CONTACTS ||
+      actionType === ActionTypes.GET_CONTACT
+    ) {
       return "primary";
     } else if (actionType === ActionTypes.DELETE_CONTACT) {
       return "danger";
