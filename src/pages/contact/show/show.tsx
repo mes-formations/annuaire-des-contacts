@@ -41,8 +41,8 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
       <h1>Détails de contact</h1>
       {loading && (
         <LoaderText
-          action={ActionTypes.DELETE_CONTACT}
-          message="Suppression en cours..."
+          action={ActionTypes.GET_CONTACT}
+          message="Chargement en cours..."
         />
       )}
       {deletionLoading && (

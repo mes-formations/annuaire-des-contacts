@@ -5,6 +5,7 @@ import ContactsAPI from "../../configs/contact.api";
 import { Action as ContactsActions } from "./contacts.actions";
 import axios from "axios";
 import { mapKeys } from "../../utils/map-keys";
+import { history } from "../store";
 
 // GET /api/contacts
 export const getContacts = () => {
@@ -58,7 +59,7 @@ export const getContactByID = (id: string) => {
 
 // GET /api/contacts/:id
 export const deleteContact = (id: string) => {
-  return async (dispatch: Dispatch<ContactsActions>) => {
+  return async (dispatch: Dispatch<ContactsActions | any>) => {
     try {
       dispatch({ type: ActionTypes.DELETE_CONTACT_REQUEST });
       await ContactsAPI.delete("/" + id);
@@ -66,6 +67,7 @@ export const deleteContact = (id: string) => {
       //   dispatch
       // }
       dispatch({ type: ActionTypes.DELETE_CONTACT_SUCCESS, payload: { id } });
+      history.push("/contacts");
     } catch (err) {
       if (axios.isAxiosError(err)) {
         dispatch({

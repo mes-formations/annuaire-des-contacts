@@ -5,13 +5,11 @@ import { apiErrorReducer } from "./api/api-error-reducer";
 import { connectRouter } from "connected-react-router";
 import { History } from "history";
 
-const rootReducer = (history: History<unknown>) =>
-  combineReducers({
-    router: connectRouter(history),
-    contacts: contactsReducer, //Les reducers sont des fonctions
-    apiLoading: apiLoadingReducer,
-    apiError: apiErrorReducer,
-  });
+const rootReducer = combineReducers({
+  contacts: contactsReducer, //Les reducers sont des fonctions
+  apiLoading: apiLoadingReducer,
+  apiError: apiErrorReducer,
+});
 
 export type RootState = ReturnType<typeof rootReducer>;
 
