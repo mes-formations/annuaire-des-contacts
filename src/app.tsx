@@ -1,11 +1,5 @@
 import { lazy, Suspense } from "react";
-import {
-  // BrowserRouter as Router,
-  Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Layout from "./components/layout/layout";
 import { LoaderRounded } from "./components/shared/loading-rounded/loader-rounded";
 
