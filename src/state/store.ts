@@ -5,10 +5,18 @@ import rootReducer from "./root.reducer";
 
 export const history = createBrowserHistory();
 
+const middlewares = [Thunk];
+
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+
+  middlewares.push(logger);
+}
+
 const store = createStore(
   rootReducer,
   compose(
-    applyMiddleware(Thunk),
+    applyMiddleware(...middlewares),
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
       (window as any).__REDUX_DEVTOOLS_EXTENSION__()
   )
