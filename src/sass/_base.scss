@@ -4,6 +4,7 @@ $primary-blue: #001f33;
 $table-border: #eeeeee;
 $color-white: #fff;
 $color-danger: #f80103;
+$color-green: #4caf50;
 :root {
   --primary-red: #{$primary-red};
   --primary-yellow: #{$primary-yellow};
@@ -11,6 +12,7 @@ $color-danger: #f80103;
   --table-border: #{$table-border};
   --color-white: #{$color-white};
   --color-danger: #{$color-danger};
+  --color-green: #{$color-green};
 }
 
 *,
