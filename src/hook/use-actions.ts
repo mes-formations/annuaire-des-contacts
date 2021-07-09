@@ -7,10 +7,18 @@ import {
   createContact,
 } from "../state/contacts/contacts.action-creators";
 
+import { updateContactForm } from "../state/contact-form/form.action-creator";
+
 export const useActions = () => {
   const dispatch = useDispatch();
   return bindActionCreators(
-    { getContacts, getContactByID, deleteContact, createContact },
+    {
+      getContacts,
+      getContactByID,
+      deleteContact,
+      createContact,
+      updateContactForm,
+    },
     dispatch
   );
 };

@@ -16,27 +16,25 @@ const initialState: IContact = {
 
 const CreateContact: React.FC = () => {
   const formData = useTypedSelector((state) => state.form);
+  const { createContact } = useActions();
   //   const [status, setStatus] = useState<IStatusMessage>({
   //     style: "",
   //     message: "",
   //   });
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    createContact(formData);
   };
 
-  const handleInput = (e: any) => {
-    setContact({ ...contact, [e.target.name]: e.target.value });
-  };
   return (
     <FormWrapper>
       <h1 className="title">Créer un nouveau contact</h1>
       <Form
-        isLoading={isLoading}
+        // isLoading={isLoading}
         isUpdate={false}
-        contact={contact}
+        contact={formData}
         buttonLabel={"Créer"}
         submitForm={submitForm}
-        handleInput={handleInput}
         // status={status}
       />
     </FormWrapper>
