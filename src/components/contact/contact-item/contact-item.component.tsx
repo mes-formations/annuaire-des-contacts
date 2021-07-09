@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { PAGES } from "../../../configs/pages";
 import { IContactResponse } from "../../../interfaces/i-contact";
 
 interface ContactItemProps {
@@ -19,7 +20,7 @@ const ContactItem: React.FC<ContactItemProps> = ({
       <td>{position}</td>
       <td>{phone_number}</td>
       <td>
-        <Link className="btn btn--primary" to={`/contacts/${id}`}>
+        <Link className="btn btn--primary" to={`${PAGES.CONTACTS_LIST}/${id}`}>
           Voir
         </Link>
         <button className="btn btn--danger" onClick={() => deleteContact(id)}>
