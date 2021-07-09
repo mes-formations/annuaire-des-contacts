@@ -35,6 +35,15 @@
       "position": "Roi",
       "work_address": "Babylone",
       "id": "uxs8GGz"
+    },
+    {
+      "first_name": "Christian",
+      "last_name": "Lisangola",
+      "email": "christian.lisangola@gmail.com",
+      "phone_number": "+243817396064",
+      "position": "Fullstack developer",
+      "work_address": "407 rue Luluwa, Bandalungwa",
+      "id": "nwQOdX0"
     }
   ]
 }
