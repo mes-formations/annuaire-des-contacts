@@ -1,5 +1,5 @@
 import { ActionTypes } from "./contacts.action-types";
-import { IContactResponse } from "../../interfaces/i-contact";
+import { IContact, IContactResponse } from "../../interfaces/i-contact";
 import { Dispatch } from "redux";
 import ContactsAPI from "../../configs/contact.api";
 import { Action as ContactsActions } from "./contacts.actions";
@@ -80,6 +80,30 @@ export const deleteContact = (id: string) => {
       } else {
         dispatch({
           type: ActionTypes.DELETE_CONTACT_FAILURE,
+          payload: "Erreur",
+        });
+      }
+    }
+  };
+};
+
+// POST /api/contacts
+export const createContact = (contact: IContact) => {
+  return async (dispatch: Dispatch<ContactsActions>) => {
+    try {
+      dispatch({ type: ActionTypes.CREATE_CONTACT_REQUEST });
+      const res = await ContactsAPI.post<IContactResponse>("/", contact);
+      dispatch({ type: ActionTypes.CREATE_CONTACT_SUCCESS, payload: res });
+      history.push("/contacts");
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        dispatch({
+          type: ActionTypes.CREATE_CONTACT_FAILURE,
+          payload: err.message,
+        });
+      } else {
+        dispatch({
+          type: ActionTypes.CREATE_CONTACT_FAILURE,
           payload: "Erreur",
         });
       }

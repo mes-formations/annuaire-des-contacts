@@ -36,5 +36,7 @@ export const contactsReducer = (
     return { ...state, collection: updatedContactsList };
   }
 
+  //POST /api/contacts : Ici ça dépend de l'action.Si par exemple, on veut créer un contact, on doit créer un objet IContactResponse et le pousser dans le store.
+
   return state;
 };
