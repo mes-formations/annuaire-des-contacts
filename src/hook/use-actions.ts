@@ -4,12 +4,13 @@ import {
   getContactByID,
   getContacts,
   deleteContact,
+  createContact,
 } from "../state/contacts/contacts.action-creators";
 
 export const useActions = () => {
   const dispatch = useDispatch();
   return bindActionCreators(
-    { getContacts, getContactByID, deleteContact },
+    { getContacts, getContactByID, deleteContact, createContact },
     dispatch
   );
 };
