@@ -19,7 +19,7 @@ const Form: React.FC<FormProps> = ({
   isLoading,
 }) => {
   return (
-    <div>
+    <div className="form-wrapper">
       <form onSubmit={submitForm} onChange={handleInput} action="">
         <InputField
           label="Prénom"

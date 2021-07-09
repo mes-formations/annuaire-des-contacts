@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { IContact } from "../../../interfaces/i-contact";
 import contactAPI from "../../../configs/contact.api";
 import Form from "../../../components/contact/contact-form/contact-form";
+import FormWrapper from "../../../components/contact/contact-form/Formwrapper";
 // import IStatusMessage from "../../../interfaces/IStatusMessage";
 
 const initialState: IContact = {
@@ -53,8 +54,8 @@ const CreateContact: React.FC = () => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
   return (
-    <div>
-      <h1>Créer un nouveau contact</h1>
+    <FormWrapper>
+      <h1 className="title">Créer un nouveau contact</h1>
       <Form
         isLoading={isLoading}
         isUpdate={false}
@@ -64,7 +65,7 @@ const CreateContact: React.FC = () => {
         handleInput={handleInput}
         // status={status}
       />
-    </div>
+    </FormWrapper>
   );
 };
 
