@@ -2,13 +2,13 @@ import { combineReducers } from "redux";
 import { contactsReducer } from "./contacts/contacts.reducer";
 import { apiLoadingReducer } from "./api/api-loading-reducer";
 import { apiErrorReducer } from "./api/api-error-reducer";
-import { connectRouter } from "connected-react-router";
-import { History } from "history";
+import { formReducer } from "./contact-form/form.reducer";
 
 const rootReducer = combineReducers({
   contacts: contactsReducer, //Les reducers sont des fonctions
   apiLoading: apiLoadingReducer,
   apiError: apiErrorReducer,
+  form: formReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

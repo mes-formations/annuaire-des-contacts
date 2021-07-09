@@ -11,7 +11,10 @@ const initialState: IContact = {
   work_address: "",
 };
 
-const reducer = (state: IContact = initialState, action: Action): IContact => {
+export const formReducer = (
+  state: IContact = initialState,
+  action: Action
+): IContact => {
   switch (action.type) {
     case ActionTypes.UPDATE_CONTACT_FORM:
       return {
@@ -24,5 +27,3 @@ const reducer = (state: IContact = initialState, action: Action): IContact => {
       return state;
   }
 };
-
-export default reducer;
