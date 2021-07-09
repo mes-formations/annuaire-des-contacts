@@ -1,14 +1,14 @@
 import { ActionTypes } from "./contacts.action-types";
 import { Action } from "./contacts.actions";
-import { IContact } from "../../interfaces/i-contact";
+import { IContactResponse } from "../../interfaces/i-contact";
 
 export interface IContactsState {
-  collection: Map<string, IContact>;
-  selected: IContact | null;
+  collection: Map<string, IContactResponse>;
+  selected: IContactResponse | null;
 }
 
 const initialState: IContactsState = {
-  collection: new Map<string, IContact>(),
+  collection: new Map<string, IContactResponse>(),
   selected: null,
 };
 
@@ -29,7 +29,9 @@ export const contactsReducer = (
 
   // DELETE /api/contacts/:id
   if (action.type === ActionTypes.DELETE_CONTACT_SUCCESS) {
-    const updatedContactsList = new Map<string, IContact>(state.collection);
+    const updatedContactsList = new Map<string, IContactResponse>(
+      state.collection
+    );
     updatedContactsList.delete(action.payload.id);
     return { ...state, collection: updatedContactsList };
   }

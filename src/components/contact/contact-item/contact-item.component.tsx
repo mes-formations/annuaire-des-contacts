@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IContact } from "../../../interfaces/i-contact";
+import { IContactResponse } from "../../../interfaces/i-contact";
 
 interface ContactItemProps {
-  contact: IContact;
+  contact: IContactResponse;
   deleteContact: (id: string) => void;
 }
 

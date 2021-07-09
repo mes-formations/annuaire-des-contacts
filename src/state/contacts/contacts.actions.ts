@@ -1,4 +1,4 @@
-import { IContact } from "../../interfaces/i-contact";
+import { IContactResponse } from "../../interfaces/i-contact";
 import { ActionTypes } from "./contacts.action-types";
 
 /**
@@ -11,7 +11,7 @@ export interface IGetContactsRequest {
 
 export interface IGetContactsSuccess {
   type: ActionTypes.GET_CONTACTS_SUCESS;
-  payload: Map<string, IContact>;
+  payload: Map<string, IContactResponse>;
 }
 
 export interface IGetContactsFailure {
@@ -29,7 +29,7 @@ export interface IGetContactRequest {
 
 export interface IGetContactSuccess {
   type: ActionTypes.GET_CONTACT_SUCCESS;
-  payload: IContact;
+  payload: IContactResponse;
 }
 
 export interface IGetContactFailure {

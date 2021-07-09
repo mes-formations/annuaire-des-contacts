@@ -1,10 +1,10 @@
 import React from "react";
-import { IContact } from "../../../interfaces/i-contact";
+import { IContactResponse } from "../../../interfaces/i-contact";
 import ContactItem from "../contact-item/contact-item.component";
 import "./styles.scss";
 
 interface ContactsCollectionProps {
-  contacts: Map<string, IContact>;
+  contacts: Map<string, IContactResponse>;
   deleteContact: (id: string) => void;
 }
 

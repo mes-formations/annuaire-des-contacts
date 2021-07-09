@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { IContact } from "../../interfaces/i-contact";
-import contactAPI from "../../configs/contact.api";
-import Form from "../../components/contact/contact-form/contact-form";
+import { IContact } from "../../../interfaces/i-contact";
+import contactAPI from "../../../configs/contact.api";
+import Form from "../../../components/contact/contact-form/contact-form";
 // import IStatusMessage from "../../../interfaces/IStatusMessage";
 
 const initialState: IContact = {

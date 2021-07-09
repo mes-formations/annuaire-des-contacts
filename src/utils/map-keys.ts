@@ -4,7 +4,7 @@
  * @param callback 
  * @returns 
  * Usage 
- * const normalized = mapKeys<string, IContact>(contacts, (norm, item) => {
+ * const normalized = mapKeys<string, IContactResponse >(contacts, (norm, item) => {
     norm.set(item.id, item);
     });
 
