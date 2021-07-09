@@ -1,0 +1,27 @@
+.form-field {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label .form-input {
+  display: block;
+  width: 40%;
+}
+
+.form-input {
+  border: 0.2rem solid #fff;
+  border-bottom: 0.1rem solid black;
+  border-radius: 0.3rem;
+  font-size: 2.5rem;
+  width: 30%;
+}
+
+input[type="text"]:disabled {
+  cursor: not-allowed;
+}
+
+.form-input:focus {
+  outline: none;
+  // padding-left: 1rem;
+}

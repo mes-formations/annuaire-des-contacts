@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.scss";
 interface InputFieldProps {
   id?: string;
   label: string;
@@ -7,7 +7,6 @@ interface InputFieldProps {
   placeholder?: string;
   name: string;
   value: string;
-  className?: string;
   required?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -18,12 +17,11 @@ const InputField: React.FC<InputFieldProps> = ({
   name,
   value = "",
   onChange,
-  className = "form-control",
   id,
   label,
 }) => {
   return (
-    <div>
+    <div className="form-field">
       <label htmlFor={id} className="form-label">
         {label}
       </label>
@@ -33,7 +31,7 @@ const InputField: React.FC<InputFieldProps> = ({
         name={name}
         value={value}
         onChange={onChange}
-        className={className}
+        className={"form-input"}
         id={id}
       />
     </div>

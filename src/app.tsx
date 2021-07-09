@@ -13,6 +13,12 @@ const ContactShow = lazy(() =>
   import(/* webpackChunkName: "contact-details" */ "./pages/contact/show/show")
 );
 
+const ContactCreate = lazy(() =>
+  import(
+    /* webpackChunkName: "contact-create" */ "./pages/contact/create/create"
+  )
+);
+
 const App: React.FC = () => {
   return (
     <Layout>
@@ -23,6 +29,7 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/contacts" component={ContactsList} />
+          <Route exact path="/contacts/new" component={ContactCreate} />
           <Route exact path="/contacts/:id" component={ContactShow} />
         </Switch>
       </Suspense>
