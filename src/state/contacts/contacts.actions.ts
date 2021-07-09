@@ -52,6 +52,21 @@ export interface IDeleteContactFailure {
   payload: string;
 }
 
+//POST /api/contacts
+export interface IPostContactRequest {
+  type: ActionTypes.CREATE_CONTACT_REQUEST;
+}
+
+export interface IPostContactSuccess {
+  type: ActionTypes.CREATE_CONTACT_SUCCESS;
+  payload: any; //TODO : A revoir quelle information on doit renvoyée
+}
+
+export interface IPostContactFailure {
+  type: ActionTypes.CREATE_CONTACT_FAILURE;
+  payload: string;
+}
+
 export type Action =
   | IGetContactsRequest
   | IGetContactsSuccess
@@ -61,4 +76,7 @@ export type Action =
   | IGetContactFailure
   | IDeleteContactRequest
   | IDeleteContactSuccess
-  | IDeleteContactFailure;
+  | IDeleteContactFailure
+  | IPostContactRequest
+  | IPostContactSuccess
+  | IPostContactFailure;

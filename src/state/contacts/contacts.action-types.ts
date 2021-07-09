@@ -17,4 +17,9 @@ export enum ActionTypes {
   DELETE_CONTACT_REQUEST = "delete_contact_request",
   DELETE_CONTACT_SUCCESS = "delete_contact_success",
   DELETE_CONTACT_FAILURE = "delete_contact_failure",
+
+  // POST /api/contacts
+  CREATE_CONTACT_REQUEST = "create_contact_request",
+  CREATE_CONTACT_SUCCESS = "create_contact_success",
+  CREATE_CONTACT_FAILURE = "create_contact_failure",
 }
