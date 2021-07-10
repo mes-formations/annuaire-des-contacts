@@ -2,7 +2,7 @@ import { ActionTypes } from "./form.action-types";
 
 export interface IContactFormUpdate {
   type: ActionTypes.UPDATE_CONTACT_FORM;
-  payload: React.ChangeEvent<HTMLInputElement>;
+  payload: React.ChangeEvent<HTMLFormElement>;
 }
 
 export interface IResetContactForm {
