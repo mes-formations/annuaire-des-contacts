@@ -19,9 +19,10 @@ if (process.env.NODE_ENV === "development") {
   const { createLogger } = require("redux-logger");
   const logger = createLogger({
     duration: true,
-    diff: true,
-    predicate: (getState: any, action: any) =>
-      action.type !== ActionTypes.GET_CONTACTS_REQUEST, //Action à ne pass logger
+    diff: false,
+    //Action à ne pass logger
+    // predicate: (getState: any, action: any) =>
+    //   action.type !== ActionTypes.GET_CONTACTS_REQUEST,
   });
   middlewares.push(logger);
 }
