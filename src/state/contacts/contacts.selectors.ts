@@ -8,10 +8,10 @@ export const selectContacts = (state: RootState) => state.contacts.collection;
 export const selectContact = (state: RootState) => state.contacts.selected;
 
 // Common selectors
-export const selectContactsLoading =
-  (actionType: ActionTypes) => (state: RootState) =>
-    state.apiLoading[actionType];
+export const selectContactsLoading = (actionType: ActionTypes) => (
+  state: RootState
+) => state.apiLoading[actionType];
 
-export const selectContactsError =
-  (actionType: ActionTypes) => (state: RootState) =>
-    state.apiError[actionType];
+export const selectContactsError = (actionType: ActionTypes) => (
+  state: RootState
+) => state.apiError[actionType];

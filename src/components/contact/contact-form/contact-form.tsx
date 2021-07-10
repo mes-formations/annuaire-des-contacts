@@ -8,7 +8,7 @@ interface FormProps {
   contact: IContact;
   submitForm: (e: React.FormEvent<HTMLFormElement>) => void;
   buttonLabel: string;
-  loading: boolean;
+  loading: boolean | undefined;
 }
 
 const Form: React.FC<FormProps> = ({

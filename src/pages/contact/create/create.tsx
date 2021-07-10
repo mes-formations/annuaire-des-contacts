@@ -8,15 +8,6 @@ import { selectContactsLoading } from "../../../state/contacts/contacts.selector
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 // import IStatusMessage from "../../../interfaces/IStatusMessage";
 
-const initialState: IContact = {
-  first_name: "",
-  last_name: "",
-  email: "",
-  phone_number: "",
-  position: "",
-  work_address: "",
-};
-
 const CreateContact: React.FC = () => {
   const formData = useTypedSelector(selectForm);
   const loading = useTypedSelector((state) =>
@@ -36,7 +27,7 @@ const CreateContact: React.FC = () => {
     <FormWrapper>
       <h1 className="title">Créer un nouveau contact</h1>
       <Form
-        // isLoading={isLoading}
+        loading={loading}
         isUpdate={false}
         contact={formData}
         buttonLabel={"Créer"}
