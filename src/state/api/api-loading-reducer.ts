@@ -11,6 +11,8 @@ type Actions = IGetContactRequest | IGetContactsRequest;
 const initialState: LoadingState = {
   get_contact: false,
   get_contacts: false,
+  create_contact: false,
+  delete_contact: false,
 };
 
 export const apiLoadingReducer = (
