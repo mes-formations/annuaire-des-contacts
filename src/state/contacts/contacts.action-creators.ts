@@ -1,8 +1,10 @@
 import { ActionTypes } from "./contacts.action-types";
+import { ActionTypes as FormActionTypes } from "../contact-form/form.action-types";
 import { IContact, IContactResponse } from "../../interfaces/i-contact";
 import { Dispatch } from "redux";
 import ContactsAPI from "../../configs/contact.api";
 import { Action as ContactsActions } from "./contacts.actions";
+import { Action as FormActions } from "../contact-form/form.actions";
 import axios from "axios";
 import { mapKeys } from "../../utils/map-keys";
 import { history } from "../store";
@@ -89,11 +91,12 @@ export const deleteContact = (id: string) => {
 
 // POST /api/contacts
 export const createContact = (contact: IContact) => {
-  return async (dispatch: Dispatch<ContactsActions>) => {
+  return async (dispatch: Dispatch<ContactsActions | FormActions>) => {
     try {
       dispatch({ type: ActionTypes.CREATE_CONTACT_REQUEST });
       const res = await ContactsAPI.post<IContactResponse>("/", contact);
       dispatch({ type: ActionTypes.CREATE_CONTACT_SUCCESS, payload: res });
+      dispatch({ type: FormActionTypes.RESET_CONTACT_FORM });
       history.push("/contacts");
     } catch (err) {
       if (axios.isAxiosError(err)) {
