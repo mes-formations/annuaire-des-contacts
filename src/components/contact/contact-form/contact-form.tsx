@@ -77,18 +77,7 @@ const Form: React.FC<FormProps> = ({
 
         <br />
         <button className="btn btn-create" type="submit">
-          {loading ? (
-            <>
-              <span
-                className="spinner-grow spinner-grow-sm"
-                role="status"
-                aria-hidden="true"
-              ></span>
-              Envoi en cours...
-            </>
-          ) : (
-            buttonLabel
-          )}
+          {loading ? <>Envoi en cours...</> : buttonLabel}
         </button>
       </form>
     </div>

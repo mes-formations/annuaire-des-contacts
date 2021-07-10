@@ -1,24 +1,6 @@
 {
   "contacts": [
     {
-      "first_name": "Grace",
-      "last_name": "Lubanja",
-      "email": "lg@gmail.com",
-      "phone_number": "+33658578477",
-      "position": "Front-end web Engineer",
-      "work_address": "Pretoria",
-      "id": "AbsW6rJ"
-    },
-    {
-      "first_name": "Jean",
-      "last_name": "Huss",
-      "email": "jean.huss@mailinator.com",
-      "phone_number": "+243818636531",
-      "position": "Reformateur",
-      "work_address": "Eglise Catholique Romaine",
-      "id": "aW5Ol7V"
-    },
-    {
       "first_name": "Alexandre",
       "last_name": "Le Grand",
       "email": "alex.big@mailinator.com",
@@ -41,18 +23,9 @@
       "last_name": "Lisangola",
       "email": "christian.lisangola@gmail.com",
       "phone_number": "+243817396064",
-      "position": "Fullstack developer",
+      "position": "Nisi et do modi nisi",
       "work_address": "407 rue Luluwa, Bandalungwa",
-      "id": "nwQOdX0"
-    },
-    {
-      "first_name": "Sarah",
-      "last_name": "Luaba Lumingu",
-      "email": "luabasarah@gmail.com",
-      "phone_number": "+243817396064",
-      "position": "Interior Architect",
-      "work_address": "100 av.Kwamouth",
-      "id": "hjMVgxz"
+      "id": "irblX4j"
     }
   ]
 }
