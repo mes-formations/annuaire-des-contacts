@@ -5,7 +5,7 @@ import { apiErrorReducer } from "./api/api-error-reducer";
 import { formReducer } from "./contact-form/form.reducer";
 
 const rootReducer = combineReducers({
-  contacts: contactsReducer, //Les reducers sont des fonctions
+  contacts: contactsReducer,
   apiLoading: apiLoadingReducer,
   apiError: apiErrorReducer,
   form: formReducer,

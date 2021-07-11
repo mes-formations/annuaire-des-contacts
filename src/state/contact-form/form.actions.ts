@@ -1,3 +1,4 @@
+import { IContact } from "../../interfaces/i-contact";
 import { ActionTypes } from "./form.action-types";
 
 export interface IContactFormUpdate {
@@ -10,7 +11,8 @@ export interface IResetContactForm {
 }
 
 export interface IPopulateContactForm {
-  type: ActionTypes.POPULATE_FORM;
+  type: ActionTypes.POPULATE_EDIT_FORM;
+  payload: IContact | null;
 }
 
 export type Action =

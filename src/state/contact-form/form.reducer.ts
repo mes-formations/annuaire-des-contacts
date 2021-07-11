@@ -1,6 +1,8 @@
 import { ActionTypes } from "./form.action-types";
+import { ActionTypes as ContactActionTypes } from "../contacts/contacts.action-types";
 import { IContact } from "../../interfaces/i-contact";
 import { Action } from "./form.actions";
+import { Action as ContactAction } from "../contacts/contacts.actions";
 import { IContactsState } from "../contacts/contacts.reducer";
 
 const initialState: IContact = {
@@ -32,10 +34,10 @@ export const formReducer = (
 // Préremplissage du formulaire à partir des données du contact
 export const prepopulateFormReducer = (
   formState: IContact,
-  action: Action,
+  action: ContactAction,
   contactState: IContactsState
 ): IContact => {
-  if (action.type === ActionTypes.POPULATE_FORM) {
+  if (action.type === ContactActionTypes.GET_CONTACT_SUCCESS) {
     return {
       ...formState,
       first_name: contactState.selected?.first_name || "",
