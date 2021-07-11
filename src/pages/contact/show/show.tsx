@@ -11,10 +11,9 @@ import { useTypedSelector } from "../../../hook/use-typed-selector";
 import { useActions } from "../../../hook/use-actions";
 import { LoaderText } from "../../../components/shared/loader-text/loader-text";
 import { PAGES } from "../../../configs/pages";
+import { ContactDetailsRouterProps } from "../../../interfaces/contact-param";
 
-type ContactIdParam = { id: string };
 
-type ContactDetailsRouterProps = RouteComponentProps<ContactIdParam>;
 
 const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
   const contact = useTypedSelector(selectContact);
