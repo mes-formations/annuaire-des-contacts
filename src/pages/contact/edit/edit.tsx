@@ -14,7 +14,7 @@ const CreateContact: React.FC = () => {
   const loading = useTypedSelector((state) =>
     selectContactsLoading(ActionTypes.CREATE_CONTACT)(state)
   );
-  const { createContact } = useActions();
+  const { createContact, populateEditForm } = useActions();
   //   const [status, setStatus] = useState<IStatusMessage>({
   //     style: "",
   //     message: "",
@@ -24,7 +24,9 @@ const CreateContact: React.FC = () => {
     createContact(formData);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    populateEditForm();
+  }, []);
 
   return (
     <FormWrapper>
