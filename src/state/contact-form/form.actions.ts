@@ -9,4 +9,11 @@ export interface IResetContactForm {
   type: ActionTypes.RESET_CONTACT_FORM;
 }
 
-export type Action = IContactFormUpdate | IResetContactForm;
+export interface IPopulateContactForm {
+  type: ActionTypes.POPULATE_FORM;
+}
+
+export type Action =
+  | IContactFormUpdate
+  | IResetContactForm
+  | IPopulateContactForm;
