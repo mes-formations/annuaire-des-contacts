@@ -26,27 +26,17 @@ export const formReducer = (
       };
     case ActionTypes.RESET_CONTACT_FORM:
       return initialState;
+    case ActionTypes.POPULATE_EDIT_FORM:
+      return {
+        ...state,
+        first_name: action.payload?.first_name || "",
+        last_name: action.payload?.last_name || "",
+        email: action.payload?.email || "",
+        phone_number: action.payload?.phone_number || "",
+        position: action.payload?.position || "",
+        work_address: action.payload?.work_address || "",
+      };
     default:
       return state;
   }
-};
-
-// Préremplissage du formulaire à partir des données du contact
-export const prepopulateFormReducer = (
-  formState: IContact,
-  action: ContactAction,
-  contactState: IContactsState
-): IContact => {
-  if (action.type === ContactActionTypes.GET_CONTACT_SUCCESS) {
-    return {
-      ...formState,
-      first_name: contactState.selected?.first_name || "",
-      last_name: contactState.selected?.last_name || "",
-      email: contactState.selected?.email || "",
-      phone_number: contactState.selected?.phone_number || "",
-      position: contactState.selected?.position || "",
-      work_address: contactState.selected?.work_address || "",
-    };
-  }
-  return formState;
 };
