@@ -20,6 +20,10 @@ const ContactCreate = lazy(() =>
   )
 );
 
+const ContactEdit = lazy(() =>
+  import(/* webpackChunkName: "contact-edit" */ "./pages/contact/edit/edit")
+);
+
 const App: React.FC = () => {
   return (
     <Layout>
@@ -36,6 +40,7 @@ const App: React.FC = () => {
             component={ContactCreate}
           />
           <Route exact path={PAGES.CONTACT_DETAILS} component={ContactShow} />
+          <Route exact path={PAGES.EDIT_CONTACT_FORM} component={ContactEdit} />
         </Switch>
       </Suspense>
     </Layout>
