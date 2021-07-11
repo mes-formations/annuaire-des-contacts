@@ -5,6 +5,7 @@ import {
   getContacts,
   deleteContact,
   createContact,
+  updateContact,
 } from "../state/contacts/contacts.action-creators";
 
 import {

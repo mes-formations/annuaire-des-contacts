@@ -114,4 +114,27 @@ export const createContact = (contact: IContact) => {
   };
 };
 
-//redux architecture
+//PUT /api/contacts/:id
+export const updateContact = (id: string, contact: IContact) => {
+  return async (dispatch: Dispatch<ContactsActions | FormActions>) => {
+    try {
+      dispatch({ type: ActionTypes.UPDATE_CONTACT_REQUEST });
+      const res = await ContactsAPI.put<IContactResponse>("/" + id, contact);
+      dispatch({ type: ActionTypes.UPDATE_CONTACT_SUCCESS, payload: res });
+      dispatch({ type: FormActionTypes.RESET_CONTACT_FORM });
+      history.push("/contacts");
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        dispatch({
+          type: ActionTypes.UPDATE_CONTACT_FAILURE,
+          payload: err.message,
+        });
+      } else {
+        dispatch({
+          type: ActionTypes.UPDATE_CONTACT_FAILURE,
+          payload: "Erreur",
+        });
+      }
+    }
+  };
+};
