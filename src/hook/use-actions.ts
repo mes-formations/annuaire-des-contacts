@@ -7,7 +7,10 @@ import {
   createContact,
 } from "../state/contacts/contacts.action-creators";
 
-import { updateContactForm } from "../state/contact-form/form.action-creator";
+import {
+  updateContactForm,
+  populateEditForm,
+} from "../state/contact-form/form.action-creator";
 
 export const useActions = () => {
   const dispatch = useDispatch();
@@ -18,6 +21,7 @@ export const useActions = () => {
       deleteContact,
       createContact,
       updateContactForm,
+      populateEditForm,
     },
     dispatch
   );
