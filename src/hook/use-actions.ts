@@ -23,6 +23,7 @@ export const useActions = () => {
       createContact,
       updateContactForm,
       populateEditForm,
+      updateContact,
     },
     dispatch
   );
