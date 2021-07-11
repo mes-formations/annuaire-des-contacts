@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
 import { Error } from "../../../components/shared/error/error";
 import {
@@ -10,6 +10,7 @@ import {
 import { useTypedSelector } from "../../../hook/use-typed-selector";
 import { useActions } from "../../../hook/use-actions";
 import { LoaderText } from "../../../components/shared/loader-text/loader-text";
+import { PAGES } from "../../../configs/pages";
 
 type ContactIdParam = { id: string };
 
@@ -66,6 +67,12 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
             <a href={`tel:${contact.phone_number}`}>{contact.phone_number}</a>
           </p>
           <p>Adresse : {contact.work_address}</p>
+          <Link
+            className="btn btn--primary"
+            to={`${PAGES.CONTACTS_LIST}/${match.params.id}/edit`}
+          >
+            Modifier
+          </Link>
           <button
             className="btn btn--danger"
             onClick={() => deleteContact(match.params.id)}
