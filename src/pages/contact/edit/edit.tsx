@@ -19,14 +19,14 @@ const CreateContact: React.FC<ContactDetailsRouterProps> = ({ match }) => {
     selectContactsLoading(ActionTypes.CREATE_CONTACT)(state)
   );
   const contact = useTypedSelector(selectContact);
-  const { createContact, populateEditForm, getContactByID } = useActions();
+  const { updateContact, populateEditForm, getContactByID } = useActions();
   //   const [status, setStatus] = useState<IStatusMessage>({
   //     style: "",
   //     message: "",
   //   });
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createContact(formData);
+    updateContact(match.params.id, formData);
   };
 
   useEffect(() => {
