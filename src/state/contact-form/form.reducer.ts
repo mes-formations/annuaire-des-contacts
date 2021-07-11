@@ -1,6 +1,7 @@
 import { ActionTypes } from "./form.action-types";
 import { IContact } from "../../interfaces/i-contact";
 import { Action } from "./form.actions";
+import { IContactsState } from "../contacts/contacts.reducer";
 
 const initialState: IContact = {
   first_name: "",
@@ -26,4 +27,24 @@ export const formReducer = (
     default:
       return state;
   }
+};
+
+// Préremplissage du formulaire à partir des données du contact
+export const prepopulateFormReducer = (
+  formState: IContact,
+  action: Action,
+  contactState: IContactsState
+): IContact => {
+  if (action.type === ActionTypes.POPULATE_FORM) {
+    return {
+      ...formState,
+      first_name: contactState.selected?.first_name || "",
+      last_name: contactState.selected?.last_name || "",
+      email: contactState.selected?.email || "",
+      phone_number: contactState.selected?.phone_number || "",
+      position: contactState.selected?.position || "",
+      work_address: contactState.selected?.work_address || "",
+    };
+  }
+  return formState;
 };
