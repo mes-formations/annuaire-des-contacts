@@ -113,3 +113,5 @@ export const createContact = (contact: IContact) => {
     }
   };
 };
+
+//redux architecture

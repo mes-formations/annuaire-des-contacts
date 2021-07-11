@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Form from "../../../components/contact/contact-form/contact-form";
 import FormWrapper from "../../../components/contact/contact-form/Formwrapper";
 import { useActions } from "../../../hook/use-actions";
@@ -5,6 +6,7 @@ import { useTypedSelector } from "../../../hook/use-typed-selector";
 import { selectForm } from "../../../state/contact-form/form.select";
 import { selectContactsLoading } from "../../../state/contacts/contacts.selectors";
 import { ActionTypes } from "../../../state/contacts/contacts.action-types";
+
 // import IStatusMessage from "../../../interfaces/IStatusMessage";
 
 const CreateContact: React.FC = () => {
@@ -21,6 +23,8 @@ const CreateContact: React.FC = () => {
     e.preventDefault();
     createContact(formData);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <FormWrapper>
