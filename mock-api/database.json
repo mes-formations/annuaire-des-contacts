@@ -1,13 +1,22 @@
 {
   "contacts": [
     {
-      "first_name": "Dechris",
-      "last_name": "Bondjali",
+      "first_name": "ChrisBonz",
+      "last_name": "Lissee",
       "email": "christian.lisangola@gmail.com",
-      "phone_number": "+243840964176",
-      "position": "Développeur Frontend",
+      "phone_number": "+243817396064",
+      "position": "Fullstack developer",
       "work_address": "407 rue Luluwa, Bandalungwa",
-      "id": "2AIHcgR"
+      "id": 1
+    },
+    {
+      "first_name": "Iris",
+      "last_name": "Le",
+      "email": "hezogi@mailinator.com",
+      "phone_number": "+243812529957",
+      "position": "Sint quibusdam do mo",
+      "work_address": "Quos aut omnis elige",
+      "id": 4
     }
   ]
 }
